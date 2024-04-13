@@ -7,14 +7,14 @@
 .header {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("pictures/uz-6.jpg");
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("https://shengez.co.za/css/pictures/uz-6.jpg");
     background-position: center;
     background-size: cover;
     position: relative;
 }
 @media(max-width: 1045px){
     .header {
-        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.911), rgba(4, 9, 30, 0.418)), url("pictures/uz-6s2.jpg");
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.911), rgba(4, 9, 30, 0.418)), url("https://shengez.co.za/css/pictures/uz-6s2.jpg");
     }
     .text-box {
         position: relative;
@@ -534,7 +534,7 @@ h3{
 .cta{
     margin: 100px auto;
     width: 80%;
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(pictures/she-1.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(https://shengez.co.za/css/pictures/she-1.jpg);
     background-position: center;
     background-size: cover;
     border-radius: 10px;
@@ -916,7 +916,7 @@ h3{
 .header-about{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(pictures/u-1.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/u-1.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -1093,7 +1093,7 @@ h3{
     margin: 20px auto;
 }
 .team-card{
-    background-image: url(pictures/smt-2.jpg);
+    background-image: url(https://shengez.co.za/css/pictures/smt-2.jpg);
     background-position: center;
     background-size: cover;
     border-radius: 15px;
@@ -1145,7 +1145,7 @@ h3{
 .streams-header{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(pictures/u-3.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/u-3.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -1158,7 +1158,7 @@ h3{
 .blog-header{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(pictures/u-IIIIII.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/u-IIIIII.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -1171,7 +1171,7 @@ h3{
 .contact-header{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(pictures/u-II.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/u-II.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -1184,7 +1184,7 @@ h3{
 .alumni-hearder{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(pictures/u-6.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/u-6.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -1197,7 +1197,7 @@ h3{
 .staff-header{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(pictures/u-2.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/u-2.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -1210,7 +1210,7 @@ h3{
 .policy-header{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(pictures/u-I.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/u-I.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -1223,7 +1223,7 @@ h3{
 .header-appreciation{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(pictures/smt-1.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/smt-1.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -1260,7 +1260,7 @@ h3{
 }
 @media(max-width: 768px) {
     .logo {
-        content: url('pictures/logo.jpg');
+        content: url('https://shengez.co.za/css/pictures/logo.jpg');
     }
 }
 
