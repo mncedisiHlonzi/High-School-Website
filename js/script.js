@@ -292,11 +292,7 @@ const downloadFile = function (data, fileType, fileName = '') {
 
 /*************************************Pop Up code**************************************/
 
-window.onload = function() {
-  setTimeout(function() {
-      document.getElementById('popup').style.visibility = "visible";
-  }, 30000); // 30 seconds
-};
+
 
 function closePopup() {
   document.getElementById('popup').style.display = 'none';
