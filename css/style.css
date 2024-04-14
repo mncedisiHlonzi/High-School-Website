@@ -1980,7 +1980,8 @@ h3{
    /********************************Pop Up********************************/
    .popup {
     position: fixed;
-    display: none;
+    display: flex;
+    visibility: hidden;
     justify-content: center;
     align-items: center;
     width: 25%;

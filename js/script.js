@@ -294,7 +294,7 @@ const downloadFile = function (data, fileType, fileName = '') {
 
 window.onload = function() {
   setTimeout(function() {
-      document.getElementById('popup').style.display = 'block';
+      document.getElementById('popup').style.visibility = "visible";
   }, 30000); // 30 seconds
 };
 
