@@ -1978,10 +1978,11 @@ h3{
 
 
    /********************************Pop Up********************************/
-   .popup {
-    position: fixed;
-    display: none;
+   #popup {
     visibility: hidden;
+    display: flex;
+    z-index: 9999999;
+    position: fixed;
     justify-content: center;
     align-items: center;
     width: 25%;
@@ -1992,11 +1993,10 @@ h3{
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    z-index: 9999;
     cursor: move;
 }
 
-.popup p {
+#popup p {
     font-size: 18px;
     margin: 0 7px; /* added margin */
     width: 100%;
@@ -2018,7 +2018,7 @@ h3{
     color: #333;
 }
 
-.popup a {
+#popup a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2036,7 +2036,7 @@ h3{
 }
 
 @media screen and (max-width: 768px) {
-    .popup {
+    #popup {
         width: 80%;
     }
 }
