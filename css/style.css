@@ -1986,8 +1986,8 @@ h3{
     justify-content: center;
     align-items: center;
     width: 25%;
-    top: 50%;
-    left: 50%;
+    top: 80%;
+    left: 80%;
     transform: translate(-50%, -50%);
     background-color: #fff;
     padding: 20px;
@@ -2038,5 +2038,7 @@ h3{
 @media screen and (max-width: 768px) {
     #popup {
         width: 80%;
+        top: 80%;
+        left: 50%;
     }
 }
