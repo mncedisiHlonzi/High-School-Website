@@ -74,7 +74,6 @@
                     <input type="email" id="email-1" name="Email-Address" placeholder="Email Address" required>
                     <input type="text" id="phone-1" name="Contact-Number" placeholder="Contact Number" required>
                     <input type="text" id="year-left" name="Year-Left-School" placeholder="Year Left School" required>
-                    <!--<textarea rows="8" id="message" name="message" placeholder="Message" required></textarea>-->
                     <button type="submit" class="hero-btn red-btn" style="margin-top: 20px; font-weight: bold;">Submit</button>
                 </form>
                 <span id="msg"></span>
@@ -663,18 +662,18 @@
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
                 if (response.ok) {
-                    msg.textContent = "Message sent successfully";
+                    msg.textContent = "Successfully registered!";
                     setTimeout(() => {
                         msg.textContent = "";
-                    }, 3000); // Message will disappear after 3 seconds
-                    form.reset(); // Reset the form
+                    }, 3000);
+                    form.reset();
                 } else {
                     throw new Error('Network response was not ok.');
                 }
             })
             .catch(error => {
                 console.error('Error!', error.message);
-                msg.textContent = "Error occurred. Please try again later."; // Display error message
+                msg.textContent = "Error occurred. Please try again later.";
             });
     });
 </script>
