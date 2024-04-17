@@ -916,7 +916,7 @@ h3{
 .header-about{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/u-1.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/s-1.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -1145,7 +1145,7 @@ h3{
 .streams-header{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/u-3.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/s-2.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -1158,7 +1158,7 @@ h3{
 .blog-header{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/u-IIIIII.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/s-4.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -1171,7 +1171,7 @@ h3{
 .contact-header{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/u-II.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/s-5.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -1210,7 +1210,7 @@ h3{
 .policy-header{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/u-I.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/s-6.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -1450,11 +1450,6 @@ h3{
         line-height: 1.3;
     }
 }
-
-
-
-
-
 
 
 
