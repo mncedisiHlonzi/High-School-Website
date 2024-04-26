@@ -2052,3 +2052,70 @@ h3{
         left: 50%;
     }
 }
+
+
+
+
+/*RCL*/
+.rcl {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.rcl .wrapper {
+    width: 100%;
+    border-radius: 15px;
+
+}
+
+.rcl h2 {
+    text-align: center;
+}
+
+.rcl hr {
+    width: 100px;
+    margin: 10px auto;
+}
+
+.rcl .members {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rcl .team-mem {
+    margin: 8px;
+    text-align: center;
+}
+
+.rcl img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 10px;
+    object-fit: cover;
+}
+
+.rcl h4,
+p {
+    text-align: center;
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+    .rcl .members {
+        flex-direction: column;
+        align-items: center;
+    }
+    .rcl img {
+        width: 250px;
+        height: 250px;
+    }
+    .rcl h4,
+p {
+    text-align: center;
+    font-size: 15px;
+}
+}
