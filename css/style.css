@@ -2056,7 +2056,7 @@ h3{
 
 
 
-/*
+
 .rcl {
     width: 80%;
     margin: auto;
@@ -2077,6 +2077,8 @@ h3{
 .rcl hr {
     width: 100px;
     margin: 10px auto;
+    border: 0;
+    border-top: 3px solid gold;
 }
 
 .rcl .members {
@@ -2098,10 +2100,16 @@ h3{
     object-fit: cover;
 }
 
-.rcl h4,
-p {
+.rcl .rclh4 {
     text-align: center;
     font-size: 12px;
+    font-weight: 500;
+}
+
+.rcl .rclp {
+    text-align: center;
+    font-size: 12px;
+    color: grey;
 }
 
 @media only screen and (max-width: 768px) {
@@ -2113,9 +2121,11 @@ p {
         width: 250px;
         height: 250px;
     }
-    .rcl h4,
-p {
-    text-align: center;
-    font-size: 15px;
+    .rcl .rclh4 {
+        font-size: 15px;
+    }
+    
+    .rcl .rclp {
+        font-size: 13px;
+    }
 }
-}*/
