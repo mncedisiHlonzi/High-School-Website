@@ -2102,13 +2102,15 @@ h3{
 
 .rcl .rclh4 {
     text-align: center;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 500;
+    color: #000;
 }
 
 .rcl .rclp {
     text-align: center;
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: 500;
     color: grey;
 }
 
