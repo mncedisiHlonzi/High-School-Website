@@ -44,4 +44,11 @@ While this is a static website, future improvements may include:
 
 This project is more than just a website it's a tribute to my high school and a demonstration of my passion for web development.
 
+## Website Preview
+
+### Desktop View  
+
+<img src="Screenshots/Screenshot1  - Desktop.png" width="600">  
+<img src="Screenshots/Screenshot2  - Desktop.png" width="600">
+
 🔗 Check out the website live at : <https://shengez.co.za/>
