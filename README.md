@@ -11,16 +11,16 @@ The site includes several sections that provide information about the school, it
 
 The website consists of the following key pages:
 
-**About** – Provides an overview of Shengeza High School, including its history, mission, and values.
-**Alumni** – Celebrates past students and their achievements, fostering a strong alumni network.
-**Analysis** – Showcases the school's academic performance, exam results, and overall progress.
-**Appreciation** – A special section to thank individuals, organizations, and stakeholders who contribute to the school's success.
-**Blog** – Features news, events, and important updates related to the school.
-**Contact** – Provides contact details and a form for inquiries or feedback.
-**Index** – The homepage, serving as the central hub of the website with engaging visuals and links to other sections.
-**Policy** – Details the school’s policies, rules, and regulations.
-**Staff** – Introduces the school's educators and administrative team.
-**Streams** – Describes the different academic streams and subjects offered at the school.
+- **About** – Provides an overview of Shengeza High School, including its history, mission, and values.
+- **Alumni** – Celebrates past students and their achievements, fostering a strong alumni network.
+- **Analysis** – Showcases the school's academic performance, exam results, and overall progress.
+- **Appreciation** – A special section to thank individuals, organizations, and stakeholders who contribute to the school's success.
+- **Blog** – Features news, events, and important updates related to the school.
+- **Contact** – Provides contact details and a form for inquiries or feedback.
+- **Index** – The homepage, serving as the central hub of the website with engaging visuals and links to other sections.
+- **Policy** – Details the school’s policies, rules, and regulations.
+- **Staff** – Introduces the school's educators and administrative team.
+- **Streams** – Describes the different academic streams and subjects offered at the school.
 
 ## Development Highlights
 
