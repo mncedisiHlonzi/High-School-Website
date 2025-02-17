@@ -1,6 +1,6 @@
 # Shengeza High School - Static Website
 
-Welcome to the official Shengeza High School website repository! This is a beautifully crafted static website designed to represent my former high school, Shengeza High School, using only HTML, CSS, and JavaScript.
+Welcome to the **Official Shengeza High School website** repository! This is a beautifully crafted static website designed to represent my former high school, Shengeza High School, using only HTML, CSS, and JavaScript.
 
 ## About the Project
 
@@ -26,11 +26,11 @@ The website consists of the following key pages:
 
 To showcase my best programming and web development skills, I incorporated the following techniques:
 
-✅ **Semantic HTML** – Ensuring clean and well-structured code for readability and accessibility.
-✅ **Modern CSS** – Utilizing CSS Grid, Flexbox, and animations for an elegant and responsive design.
-✅ **JavaScript Interactivity** – Enhancing user experience with smooth transitions, dynamic elements, and event-driven functionalities.
-✅ **Responsive Design** – Making sure the website adapts perfectly to different screen sizes, from desktops to mobile devices.
-✅ **Performance Optimization** – Implementing lightweight assets, minified CSS/JS, and optimized images for fast loading.
+- **Semantic HTML** – Ensuring clean and well-structured code for readability and accessibility.
+- **Modern CSS** – Utilizing CSS Grid, Flexbox, and animations for an elegant and responsive design.
+- **JavaScript Interactivity** – Enhancing user experience with smooth transitions, dynamic elements, and event-driven functionalities.
+- **Responsive Design** – Making sure the website adapts perfectly to different screen sizes, from desktops to mobile devices.
+- **Performance Optimization** – Implementing lightweight assets, minified CSS/JS, and optimized images for fast loading.
 
 ## Future Enhancements
 
@@ -44,4 +44,4 @@ While this is a static website, future improvements may include:
 
 This project is more than just a website it's a tribute to my high school and a demonstration of my passion for web development.
 
-🔗 Check out the website live at: <https://shengez.co.za/>
+🔗 Check out the website live at : <https://shengez.co.za/>
