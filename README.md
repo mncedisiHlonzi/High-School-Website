@@ -1,0 +1,1 @@
+# 📌 Shengeza High School - Static Website
