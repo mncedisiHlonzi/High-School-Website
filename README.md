@@ -52,13 +52,13 @@ This project is more than just a website it's a tribute to my high school and a 
 
 <img src="Screenshots/Screenshot2 - Desktop.png" width="100%">
 
-<img src="Screenshots/Screenshot3 - Desktop.png" width="600">
+<img src="Screenshots/Screenshot3 - Desktop.png" width="100%">
 
-<img src="Screenshots/Screenshot4 - Desktop.png" width="600">
+<img src="Screenshots/Screenshot4 - Desktop.png" width="100%">
 
-<img src="Screenshots/Screenshot5 - Desktop.png" width="600">
+<img src="Screenshots/Screenshot5 - Desktop.png" width="100%">
 
-<img src="Screenshots/Screenshot6 - Desktop.png" width="600">
+<img src="Screenshots/Screenshot6 - Desktop.png">
 
 
 🔗 Check out the website live at : <https://shengez.co.za/>
