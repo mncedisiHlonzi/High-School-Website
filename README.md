@@ -48,7 +48,7 @@ This project is more than just a website it's a tribute to my high school and a 
 
 ### Desktop View  
 
-<img src="Screenshots/Screenshot1 - Desktop.png" width="100%">
+<img src="Screenshots/Screenshot1  - Desktop.png" width="100%">
 
 <img src="Screenshots/Screenshot2 - Desktop.png" width="100%">
 
