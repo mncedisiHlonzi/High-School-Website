@@ -44,28 +44,25 @@ While this is a static website, future improvements may include:
 
 This project is more than just a website it's a tribute to my high school and a demonstration of my passion for web development.
 
-## Website Preview
+## Website Preview  
 
-### Desktop View  
+### Desktop View
 
-<img src="Screenshots/Screenshot1  - Desktop.png" width="100%">
+Below are a few selected desktop screenshots of the website. These previews showcase the design, layout, and functionality, giving you a glimpse of the overall experience.  
 
-<img src="Screenshots/Screenshot2 - Desktop.png" width="100%">
-
-<img src="Screenshots/Screenshot3 - Desktop.png" width="100%">
-
-<img src="Screenshots/Screenshot4 - Desktop.png" width="100%">
-
-<img src="Screenshots/Screenshot5 - Desktop.png" width="100%">
-
-<img src="Screenshots/Screenshot6 - Desktop.png" width="100%">
+<img src="Screenshots/Screenshot1  - Desktop.png" width="100%">  
+<img src="Screenshots/Screenshot2 - Desktop.png" width="100%">  
+<img src="Screenshots/Screenshot3 - Desktop.png" width="100%">  
+<img src="Screenshots/Screenshot4 - Desktop.png" width="100%">  
+<img src="Screenshots/Screenshot5 - Desktop.png" width="100%">  
+<img src="Screenshots/Screenshot6 - Desktop.png" width="100%">  
 
 ### Mobile View
 
-<img src="Screenshots/Screenshot1 - Mobile.png" width="300">
+Here are a few mobile screenshots to highlight the responsive design of the website. The mobile experience is optimized for seamless navigation and accessibility on smaller screens.  
 
-<img src="Screenshots/Screenshot2 - Mobile.png" width="300">
+<img src="Screenshots/Screenshot1 - Mobile.png" width="300">  
+<img src="Screenshots/Screenshot2 - Mobile.png" width="300">  
+<img src="Screenshots/Screenshot3 - Mobile.png" width="300">  
 
-<img src="Screenshots/Screenshot3 - Mobile.png" width="300">
-
-🔗 Check out the website live at : <https://shengez.co.za/>
+🔗 **Check out the website live at :** [Shengeza High School Website](https://shengez.co.za/)  
