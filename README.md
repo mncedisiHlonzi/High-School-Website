@@ -62,7 +62,7 @@ This project is more than just a website it's a tribute to my high school and a 
 
 ### Mobile View
 
-<img src="Screenshots/Screenshot1 - Mobile.png">
+<img src="Screenshots/Screenshot1 - Mobile.png" width="300">
 
 <img src="Screenshots/Screenshot2 - Mobile.png">
 
