@@ -63,4 +63,4 @@ Here are a few mobile screenshots to highlight the responsive design of the webs
 <img src="Screenshots/Screenshot2 - Mobile.png" width="300">  
 <img src="Screenshots/Screenshot3 - Mobile.png" width="300">  
 
-🔗 **Check out the website live at:** <a href="https://shengez.co.za/" target="_blank" rel="noopener noreferrer">Shengeza High School Website</a>
+🔗 **Check out the website live at :** <a href="https://shengez.co.za/" target="_blank" rel="noopener noreferrer">Shengeza High School Website</a>
