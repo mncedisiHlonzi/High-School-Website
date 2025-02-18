@@ -60,5 +60,12 @@ This project is more than just a website it's a tribute to my high school and a 
 
 <img src="Screenshots/Screenshot6 - Desktop.png" width="100%">
 
+### Mobile View
+
+<img src="Screenshots/Screenshot1 - Mobile.png">
+
+<img src="Screenshots/Screenshot2 - Mobile.png">
+
+<img src="Screenshots/Screenshot3 - Mobile.png">
 
 🔗 Check out the website live at : <https://shengez.co.za/>
