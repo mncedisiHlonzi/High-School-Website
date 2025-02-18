@@ -53,9 +53,7 @@ Below are a few selected desktop screenshots of the website. These previews show
 <img src="Screenshots/Screenshot1  - Desktop.png" width="100%">  
 <img src="Screenshots/Screenshot2 - Desktop.png" width="100%">  
 <img src="Screenshots/Screenshot3 - Desktop.png" width="100%">  
-<img src="Screenshots/Screenshot4 - Desktop.png" width="100%">  
-<img src="Screenshots/Screenshot5 - Desktop.png" width="100%">  
-<img src="Screenshots/Screenshot6 - Desktop.png" width="100%">  
+<img src="Screenshots/Screenshot4 - Desktop.png" width="100%">   
 
 ### Mobile View
 
