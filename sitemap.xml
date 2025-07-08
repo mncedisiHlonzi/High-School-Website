@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://shengez.co.za/</loc>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/about.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/streams.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/staff.html</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/alumni.html</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/blog.html</loc>
+    <priority>0.60</priority>
+  </url>
+</urlset>
