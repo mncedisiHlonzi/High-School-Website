@@ -175,9 +175,9 @@ h1{
     font-weight: 600;
 }
 p{
-    color: #474747;
-    font-size: 0.9rem;
-    font-weight: 400;
+    color: grey;
+    font-size: 14px;
+    font-weight: 500;
     line-height: 22px;
     padding: 10px;
 }
