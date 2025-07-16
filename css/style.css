@@ -177,7 +177,7 @@ h1{
 p{
     color: grey;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 500; 
     line-height: 22px;
     padding: 10px;
 }
