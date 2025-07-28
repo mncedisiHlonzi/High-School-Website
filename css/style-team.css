@@ -103,7 +103,7 @@ nav .bi{
     }
 }
 
-.staff-header{
+/*.staff-header{
     height: 50vh;
     width: 100%;
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/Shengeza-Web.webp);
@@ -119,7 +119,7 @@ nav .bi{
     .staff-header{
         background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/st-3.webp);
     }
-}
+}*/
 
 .wrapper .title{
     text-align: center;
