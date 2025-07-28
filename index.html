@@ -323,251 +323,36 @@
 
 <body>
     <section class="header">
-    <div class="header-image-container">
-        <!-- Desktop image -->
-        <img src="https://shengez.co.za/css/pictures/Shengeza-Web.webp" 
-             alt="Shengeza High School Campus" 
-             class="header-image desktop-image"
-             loading="lazy">
-        <!-- Mobile image -->
-        <img src="https://shengez.co.za/css/pictures/Shengeza-Web-Mobile.webp" 
-             alt="Shengeza High School Campus" 
-             class="header-image mobile-image"
-             loading="lazy">
-        <div class="overlay"></div>
-    </div>
-    
-    <nav>
-        <a href="https://shengez.co.za/"><img src="https://shengez.co.za/Images/Badge.webp" alt="Shengeza High School Badge"></a>
-        <div class="nav-links" id="navLinks">
-            <i class="bi bi-x" onclick="hideMenu()"></i>
-            <ul>
-                <li><a href="https://shengez.co.za/">HOME</a></li>
-                <li><a href="https://shengez.co.za/about">ABOUT US</a></li>
-                <li><a href="https://shengez.co.za/streams">STREAMS</a></li>
-                <li><a href="https://shengez.co.za/staff">STAFF</a></li>
-                <li><a href="https://shengez.co.za/alumni">ALUMNI</a></li>
-                <li><a href="https://shengez.co.za/blog">BLOG</a></li>
-                <li><a href="https://shengez.co.za/policy">POLICY</a></li>
-                <li><a href="https://shengez.co.za/appreciation">APPRECIATION</a></li>
-                <li><a href="https://shengez.co.za/contact">CONTACT US</a></li>
-            </ul>
+        <nav>
+            <a href="https://shengez.co.za/"><img src="https://shengez.co.za/Images/Badge.webp" alt="Badge - shengeza high school"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="bi bi-x" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="https://shengez.co.za/">HOME</a></li>
+                    <li><a href="https://shengez.co.za/about">ABOUT US</a></li>
+                    <li><a href="https://shengez.co.za/streams">STREAMS</a></li>
+                    <li><a href="https://shengez.co.za/staff">STAFF</a></li>
+                    <li><a href="https://shengez.co.za/alumni">ALUMNI</a></li>
+                    <li><a href="https://shengez.co.za/blog">BLOG</a></li>
+                    <li><a href="https://shengez.co.za/policy">POLICY</a></li>
+                    <li><a href="https://shengez.co.za/appreciation">APPRECIATION</a></li>
+                    <li><a href="https://shengez.co.za/contact">CONTACT US</a></li>
+                </ul>
+            </div>
+            <i class="bi bi-filter-right" onclick="showMenu()"></i>
+        </nav>
+
+        <div class="text-box">
+            <h1>Shengeza High School</h1>
+            <p>
+                Our commitment to fostering a dynamic learning environment sets the stage
+                for academic achievement, personal growth, and future success.<br>At Shengeza High School we believe in nurturing curiosity, embracing diversity,
+                and empowering every student to reach their full potential.
+            </p>
+            <p style="font-size: 15px; font-weight: 500; color: gold;">- Education Is Light -</p>
+            <a href="https://shengez.co.za/about" class="hero-btn">Check Us To Know More</a>
         </div>
-        <i class="bi bi-filter-right" onclick="showMenu()"></i>
-    </nav>
-
-    <div class="text-box">
-        <h1>Shengeza High School</h1>
-        <p>
-            Our commitment to fostering a dynamic learning environment sets the stage
-            for academic achievement, personal growth, and future success.<br>At Shengeza High School we believe in nurturing curiosity, embracing diversity,
-            and empowering every student to reach their full potential.
-        </p>
-        <p style="font-size: 15px; font-weight: 500; color: gold;">- Education Is Light -</p>
-        <a href="https://shengez.co.za/about" class="hero-btn">Check Us To Know More</a>
-    </div>
-</section>
-
-<style>
-.header {
-    position: relative;
-    min-height: 100vh;
-    width: 100%;
-    overflow: hidden;
-}
-
-.header-image-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-.header-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7));
-}
-
-/* Initially hide mobile image */
-.mobile-image {
-    display: none;
-}
-
-@media (max-width: 1045px) {
-    .overlay {
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.911), rgba(4, 9, 30, 0.418));
-    }
-    
-    .desktop-image {
-        display: none;
-    }
-    
-    .mobile-image {
-        display: block;
-    }
-    
-    .text-box {
-        position: relative;
-        z-index: 1;
-        padding: 20px;
-        border-radius: 10px;
-        width: 90%;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .text-box::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: inherit;
-        left: inherit;
-        transform: translateX(-50%);
-        height: 100%;
-        background-color: rgba(255, 255, 255, 0.171);
-        backdrop-filter: blur(10px);
-        border-radius: 10px;
-        z-index: -1;
-    }
-    
-    .text-box h1 {
-        color: gold;
-    }
-}
-
-/* Rest of your existing CSS remains unchanged */
-nav {
-    display: flex;
-    padding: 2% 2%;
-    justify-content: space-between;
-    align-items: center;
-}
-nav img {
-    width: 115px;
-    height: 100px;
-}
-.nav-links {
-    flex: 1;
-    text-align: right;
-}
-.nav-links ul li {
-    list-style: none;
-    display: inline-block;
-    padding: 8px 12px;
-    position: relative;
-}
-.nav-links ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-}
-.nav-links ul li::after {
-    content: '';
-    width: 0;
-    height: 2px;
-    background: gold;
-    display: block;
-    margin: auto;
-    transition: 0.5s;
-}
-.nav-links ul li:hover::after {
-    width: 100%;
-}
-.text-box {
-    width: 90%;
-    color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    text-align: center;
-}
-.text-box h1 {
-    font-size: 62px;
-    color: gold;
-}
-.text-box p {
-    margin: 10px 0 40px;
-    font-size: 14px;
-    color: #fff;
-}
-.hero-btn {
-    display: inline-block;
-    text-decoration: none;
-    color: #fff;
-    border: 3px solid gold;
-    padding: 12px 34px;
-    font-size: 13px;
-    font-weight: 500;
-    background: transparent;
-    position: relative;
-    cursor: pointer;
-}
-.hero-btn:hover {
-    border: 3px solid gold;
-    background: gold;
-    font-weight: bold;
-    transition: 1s;
-    color: black;
-}
-nav .bi {
-    display: none;
-}
-@media (max-width: 768px) {
-    .text-box h1 {
-        font-size: 20px;
-    }
-    .nav-links ul li {
-        display: block;
-    }
-    .nav-links {
-        position: fixed;
-        background: gold;
-        height: 100vh;
-        width: 200px;
-        top: 0;
-        right: -200px;
-        text-align: left;
-        z-index: 2;
-        transition: 1s;
-    }
-    .nav-links ul li a {
-        color: black;
-        font-weight: 500;
-    }
-    .nav-links ul li::after {
-        display: none;
-    }
-    .nav-links .bi {
-        color: black;
-    }
-    nav .bi {
-        display: block;
-        color: #fff;
-        margin: 10px;
-        font-size: 22px;
-        cursor: pointer;
-    }
-    .nav-links ul {
-        padding: 30px;
-    }
-}
-</style>
+    </section>
 
     <section class="rcl">
         <div class="wrapper">

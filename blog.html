@@ -29,13 +29,6 @@
 </head>
 <body>
     <section class="blog-header">
-        <div class="header-image-container">
-            <!-- Desktop image -->
-            <img src="https://shengez.co.za/css/pictures/s-4.webp" alt="Shengeza High School Blog" class="header-image desktop-image">
-            <!-- Mobile image (hidden by default) -->
-            <img src="https://shengez.co.za/css/pictures/s-7.webp" alt="Shengeza High School Blog" class="header-image mobile-image">
-            <div class="overlay"></div>
-        </div>
         <nav>
             <a href="https://shengez.co.za/"><img src="https://shengez.co.za/Images/Badge.webp" alt="Badge - shengeza high school"></a>
             <div class="nav-links" id="navLinks">
@@ -56,66 +49,6 @@
         </nav>
         <h1>Blogs</h1>
     </section>
-
-    <style>
-    .blog-header {
-        position: relative;
-        height: 50vh;
-        width: 100%;
-        text-align: center;
-        color: #fff;
-        overflow: hidden;
-    }
-
-    .header-image-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-    }
-
-    .header-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7));
-    }
-
-    .blog-header h1 {
-        margin-top: 100px;
-        position: relative;
-    }
-
-    .blog-header nav {
-        position: relative;
-    }
-
-    /* Initially hide mobile image */
-    .mobile-image {
-        display: none;
-    }
-
-    @media (max-width: 768px) {
-        /* Switch images at mobile breakpoint */
-        .desktop-image {
-            display: none;
-        }
-        .mobile-image {
-            display: block;
-        }
-    }
-    </style>
 
     <section class="blog-content">
         <div class="row">

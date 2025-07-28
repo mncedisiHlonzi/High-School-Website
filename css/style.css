@@ -4,7 +4,7 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
-/*.header {
+.header {
     min-height: 100vh;
     width: 100%;
     background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("https://shengez.co.za/css/pictures/Shengeza-Web.webp");
@@ -32,11 +32,11 @@
         top: 0;
         left: 0;
         width: inherit;
-        left: inherit; /* Move the box 50% from the left edge *
+        left: inherit; /* Move the box 50% from the left edge */
         transform: translateX(-50%);
         height: 100%;
-        background-color: rgba(255, 255, 255, 0.171); /* Adjust opacity as needed *
-        //backdrop-filter: blur(10px);  Adjust blur radius as needed *
+        background-color: rgba(255, 255, 255, 0.171); /* Adjust opacity as needed */
+        backdrop-filter: blur(10px); /* Adjust blur radius as needed */
         border-radius: 10px;
         z-index: -1;
     }
@@ -49,7 +49,7 @@ nav{
     padding: 2% 2%;
     justify-content: space-between;
     align-items: center;
-    /*background: white;*
+    /*background: white;*/
 }
 nav img{
     width: 115px;
@@ -161,7 +161,7 @@ nav .bi{
     .nav-links ul{
         padding: 30px;
     }
-}*/
+}
 
 
 .course{
@@ -913,7 +913,7 @@ h3{
 
 /*------About------*/
 
-/*.header-about{
+.header-about{
     height: 50vh;
     width: 100%;
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/s-5.webp);
@@ -924,8 +924,7 @@ h3{
 }
 .header-about h1{
     margin-top: 100px;
-}*/
-
+}
 .about-us{
     width: 80%;
     margin: auto;
@@ -1143,7 +1142,7 @@ h3{
 }
 
 
-/*.streams-header{
+.streams-header{
     height: 50vh;
     width: 100%;
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/s-2.webp);
@@ -1154,9 +1153,9 @@ h3{
 }
 .streams-header h1{
     margin-top: 100px;
-}*/
+}
 
-/*.blog-header{
+.blog-header{
     height: 50vh;
     width: 100%;
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/s-4.webp);
@@ -1172,9 +1171,9 @@ h3{
     .blog-header{
         background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/s-7.webp);
     }
-}*/
+}
 
-/*.contact-header{
+.contact-header{
     height: 50vh;
     width: 100%;
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/s-9.webp);
@@ -1185,9 +1184,9 @@ h3{
 }
 .contact-header h1{
     margin-top: 100px;
-}*/
+}
 
-/*.alumni-hearder{
+.alumni-hearder{
     height: 50vh;
     width: 100%;
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/s-3.webp);
@@ -1203,9 +1202,9 @@ h3{
     .alumni-hearder{
         background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/md-11.webp);
     }
-}*/
+}
 
-/*.staff-header{
+.staff-header{
     height: 50vh;
     width: 100%;
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/st-2.webp);
@@ -1221,9 +1220,9 @@ h3{
     .staff-header{
         background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/st-3.webp);
     }
-}*/
+}
 
-/*.policy-header{
+.policy-header{
     height: 50vh;
     width: 100%;
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/s-8.webp);
@@ -1234,9 +1233,9 @@ h3{
 }
 .policy-header h1{
     margin-top: 100px;
-}*/
+}
 
-/*.header-appreciation{
+.header-appreciation{
     height: 50vh;
     width: 100%;
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/u-II.webp);
@@ -1247,7 +1246,7 @@ h3{
 }
 .header-appreciation h1{
     margin-top: 100px;
-}*/
+}
 
 
 
