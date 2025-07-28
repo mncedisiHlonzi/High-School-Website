@@ -7,14 +7,14 @@
 .header {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("https://shengez.co.za/css/pictures/uz-6.jpg");
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("https://shengez.co.za/css/pictures/Shengeza-Web.webp");
     background-position: center;
     background-size: cover;
     position: relative;
 }
 @media(max-width: 1045px){
     .header {
-        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.911), rgba(4, 9, 30, 0.418)), url("https://shengez.co.za/css/pictures/uz-6s2.jpg");
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.911), rgba(4, 9, 30, 0.418)), url("https://shengez.co.za/css/pictures/Shengeza-Web-Mobile.webp");
     }
     .text-box {
         position: relative;
