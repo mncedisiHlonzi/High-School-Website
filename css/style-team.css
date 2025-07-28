@@ -106,7 +106,7 @@ nav .bi{
 .staff-header{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/uz-6.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/Shengeza-Web.webp);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -117,7 +117,7 @@ nav .bi{
 }
 @media(max-width: 768px){
     .staff-header{
-        background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/st-3.jpg);
+        background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://shengez.co.za/css/pictures/st-3.webp);
     }
 }
 
