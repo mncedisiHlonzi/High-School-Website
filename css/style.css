@@ -84,50 +84,11 @@ nav img{
 .nav-links ul li:hover::after{
     width: 100%;
 }
-.text-box{
-    width: 90%;
-    color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    text-align: center;
-}
-.text-box h1{
-    font-size: 62px;
-    color: gold;
-}
-.text-box p{
-    margin: 10px 0 40px;
-    font-size: 14px;
-    color: #fff;
-}
-.hero-btn{
-    display: inline-block;
-    text-decoration: none;
-    color: #fff;
-    border: 3px solid gold;
-    padding: 12px 34px;
-    font-size: 13px;
-    font-weight: 500;
-    background: transparent;
-    position: relative;
-    cursor: pointer;
-}
-.hero-btn:hover{
-    border: 3px solid gold;
-    background: gold;
-    font-weight: bold;
-    transition: 1s;
-    color: black;
-}
+
 nav .bi{
     display: none;
 }
 @media(max-width: 768px){
-    .text-box h1{
-        font-size: 20px;
-    }
     .nav-links ul li{
         display: block;
     }
