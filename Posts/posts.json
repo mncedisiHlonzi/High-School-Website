@@ -1,0 +1,55 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "title": "Shengeza High School's 100% NSC Pass Rate",
+      "image": "https://shengez.co.za/Images/blog/blog-22/mc1.webp",
+      "alt": "Matric 2024 100% pass rate - shengeza high school",
+      "date": "2025-03-05",
+      "content": [
+        {
+          "type": "text",
+          "value": "On the 5th of March 2025, Shengeza High School proudly hosted a prestigious event to celebrate the outstanding achievements of the Grade 12 Class of 2024. This milestone was truly historic, as the school attained a 100% matric pass rate for the first time since the introduction of matric in 1999."
+        },
+        {
+          "type": "image",
+          "value": "https://shengez.co.za/Images/blog/blog-22/mc2.webp",
+          "alt": "Matric 2024 100% pass rate - shengeza high school"
+        },
+        {
+          "type": "text",
+          "value": "The celebration brought together various esteemed stakeholders, including the School Governing Body (SGB), teachers, support staff, Representative Council of Learners (RCL), religious leaders, and traditional leaders. Their presence emphasized the collective effort that contributed to this remarkable success."
+        },
+        {
+          "type": "image",
+          "value": "https://shengez.co.za/Images/blog/blog-22/mc3.webp",
+          "alt": "Matric 2024 100% pass rate - shengeza high school"
+        },
+        {
+          "type": "heading",
+          "value": "Keynote Address & Appreciation"
+        },
+        {
+          "type": "text",
+          "value": "The event was graced by Pastor P. Masiza, who delivered a powerful keynote address, inspiring the school to continue striving for excellence. In recognition of their dedication and hard work, all Grade 12 educators received tokens of appreciation for their role in achieving subject performances ranging from 75% to 100%."
+        }
+      ],
+      "categories": ["Matric Results", "Celebrating Excellence"]
+    },
+    {
+      "id": 1,
+      "title": "Shengeza High School Achieves 100% Matric Pass Rate!",
+      "image": "https://shengez.co.za/Images/blog/blog-21/dut7.webp",
+      "alt": "Matric 2024 100% pass rate - shengeza high school",
+      "date": "2025-01-20",
+      "content": [
+        {
+          "type": "text",
+          "value": "We are overjoyed to announce a historic milestone for Shengeza High School! The Matric Class of 2024 has achieved a 100% pass rate the first in our school's history since its establishment in 1995, with the first matric class in 1999. This outstanding achievement is a testament to years of dedication, teamwork, and a shared vision for success."
+        }
+      ],
+      "categories": ["Matric Results", "Celebrating Excellence"]
+    }
+    
+  ]
+}
