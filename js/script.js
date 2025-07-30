@@ -29,31 +29,77 @@ var swiper = new Swiper(".mySwiper", {
 
 
   document.addEventListener('DOMContentLoaded', function () {
-    const parentContainer = document.querySelector('.read-more-container');
-    parentContainer.addEventListener('click', event => {
-        const current = event.target;
-        const isReadMoreBtn = current.className.includes('read-more-btn');
-        if (!isReadMoreBtn) return;
-        const currentText = event.target.parentNode.querySelector('.read-more-text');
-        currentText.classList.toggle('read-more-text--show');
-        current.textContent = current.textContent.includes('Read More') ?
-            "Read Less..." : "Read More...";
+    const blogLeftContainer = document.querySelector('.blog-left');
+    const readMoreButtons = []; // To store references to all 'Read More' buttons
+
+    // Function to fetch and display blog posts
+    async function fetchBlogPosts() {
+        try {
+            const response = await fetch('https://shengez.co.za/data/blogs.json'); // Adjust path if needed
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const blogPosts = await response.json();
+
+            blogPosts.forEach(post => {
+                const blogContainer = document.createElement('div');
+                blogContainer.classList.add('container-b');
+                blogContainer.setAttribute('data-blog-id', post.id); // Optional: add a data attribute for ID
+
+                blogContainer.innerHTML = `
+                    <img src="${post.image}" alt="${post.alt}">
+                    <h2>${post.title}</h2>
+                    <p>
+                        ${post.short_description}
+                        <span class="read-more-text-b">
+                            ${post.content}
+                        </span>
+                    </p>
+                    <span class="read-more-btn-b">Read More...</span>
+                `;
+                blogLeftContainer.appendChild(blogContainer);
+            });
+
+            // After all posts are added, re-initialize read more functionality
+            initializeReadMore();
+
+        } catch (error) {
+            console.error('Error fetching blog posts:', error);
+            blogLeftContainer.innerHTML = '<p>Failed to load blog posts. Please try again later.</p>';
+        }
+    }
+
+    // Initialize Read More/Less functionality
+    function initializeReadMore() {
+        const parentContainer = document.querySelector('.blog-left'); // Target the container where blogs are added
+        parentContainer.addEventListener('click', event => {
+            const current = event.target;
+            const isReadMoreBtn = current.classList.contains('read-more-btn-b'); // Use classList.contains for robustness
+
+            if (!isReadMoreBtn) return;
+
+            const currentText = current.parentNode.querySelector('.read-more-text-b');
+            currentText.classList.toggle('read-more-text-b--show');
+            current.textContent = current.textContent.includes('Read More') ?
+                "Read Less..." : "Read More...";
+        });
+    }
+
+    // Call the function to fetch and display blog posts when the DOM is loaded
+    fetchBlogPosts();
+
+    // Your existing nav menu and context menu scripts
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
     });
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  const parentContainer = document.querySelector('.blog-left');
-  parentContainer.addEventListener('click', event => {
-      const current = event.target;
-      const isReadMoreBtn = current.className.includes('read-more-btn-b');
-      if (!isReadMoreBtn) return;
-      const currentText = event.target.parentNode.querySelector('.read-more-text-b');
-      currentText.classList.toggle('read-more-text-b--show');
-      current.textContent = current.textContent.includes('Read More') ?
-          "Read Less..." : "Read More...";
-  });
 });
 
 
