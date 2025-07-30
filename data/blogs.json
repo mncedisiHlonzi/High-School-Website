@@ -33,5 +33,13 @@
       "https://shengez.co.za/Images/blog/blog-21/s100v1.mp4",
       "https://shengez.co.za/Images/blog/blog-21/s100v2.mp4"
     ]
-  }
+  },
+
+  {
+    "id": "blog-20",
+    "title": "Some Article",
+    "cover": "https://shengez.co.za/Images/blog/blog-21/dut7.webp",
+    "content": "This is the intro text. <span class='read-more-text'>This is hidden until clicked.</span> <span class='read-more-btn'>Read More...</span>"
+    }
+
 ]

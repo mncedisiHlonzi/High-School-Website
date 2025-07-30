@@ -214,7 +214,7 @@
 
       data.forEach(post => {
         const blogDiv = document.createElement('div');
-        blogDiv.classList.add('container-b');
+        blogDiv.classList.add('container-b', 'blog-left'); // IMPORTANT: add `blog-left` for toggle to work
 
         const contentPreview = post.content[0];
         const fullContent = post.content.map(p => `<p>${p}</p>`).join('');
@@ -226,7 +226,7 @@
           <h2>${post.title}</h2>
           <p>
             ${contentPreview}
-            <span class="read-more-text-b" style="display:none;">
+            <span class="read-more-text-b">
               ${fullContent}
               ${images}
               ${videos}
@@ -236,20 +236,6 @@
         `;
 
         container.appendChild(blogDiv);
-      });
-
-      // Read More toggle
-      document.querySelectorAll('.read-more-btn-b').forEach(btn => {
-        btn.addEventListener('click', function () {
-          const text = this.previousElementSibling.querySelector('.read-more-text-b');
-          if (text.style.display === 'none') {
-            text.style.display = 'inline';
-            this.textContent = 'Read Less...';
-          } else {
-            text.style.display = 'none';
-            this.textContent = 'Read More...';
-          }
-        });
       });
     })
     .catch(err => {
