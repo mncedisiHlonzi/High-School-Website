@@ -6,14 +6,13 @@
   <title>Blog Post</title>
   <style>
     :root {
-      --primary-color: #4361ee;
-      --secondary-color: #3f37c9;
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
       --text-color: #333;
       --light-gray: #f8f9fa;
       --medium-gray: #e9ecef;
       --dark-gray: #6c757d;
-      --max-content-width: 1200px;
-      --content-width: 90%;
+      --max-content-width: 800px;
       --border-radius: 8px;
       --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       --transition: all 0.3s ease;
@@ -34,49 +33,40 @@
       margin: 0;
     }
 
-    .blog-content{
-    width: 80%;
-    margin: auto;
-    padding: 60px 0;
-}
+    .blog-content {
+      max-width: var(--max-content-width);
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
 
     #blog-container {
-     flex-basis: 65%;
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      padding: 2rem;
     }
 
     #blog-container h1 {
-      color: #222;
-    font-weight: 600;
-    margin: 30px 0;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+      line-height: 1.2;
     }
 
     #blog-container img {
       width: 100%;
+      height: auto;
+      border-radius: var(--border-radius);
+      margin: 1.5rem 0;
+      object-fit: cover;
+      max-height: 450px;
     }
-
-    .blog-right{
-    flex-basis: 32%;
-}
-.blog-right h3{
-    background: gold;
-    color: black;
-    padding: 7px 0;
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-.blog-right div{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #555;
-    padding: 8px;
-    box-sizing: border-box;
-}
 
     #blog-container p:first-of-type {
       font-size: 1.2rem;
       color: var(--dark-gray);
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       font-weight: 500;
     }
 
@@ -89,38 +79,28 @@
       margin-bottom: 1.5rem;
     }
 
-    #blog-container div h2,
-    #blog-container div h3,
-    #blog-container div h4 {
-      margin: 2rem 0 1rem;
-      color: var(--secondary-color);
-    }
-
     #blog-container div h2 {
-      font-size: 1.8rem;
+      margin: 2rem 0 1rem;
+      color: var(--primary-color);
     }
 
     #blog-container div h3 {
-      font-size: 1.5rem;
-    }
-
-    #blog-container div h4 {
-      font-size: 1.3rem;
+      margin: 1.5rem 0 0.8rem;
+      color: var(--primary-color);
     }
 
     #blog-container div a {
-      color: var(--primary-color);
+      color: var(--secondary-color);
       text-decoration: none;
       transition: var(--transition);
     }
 
     #blog-container div a:hover {
       text-decoration: underline;
-      color: var(--secondary-color);
     }
 
     #blog-container div blockquote {
-      border-left: 4px solid var(--primary-color);
+      border-left: 4px solid var(--secondary-color);
       padding-left: 1.5rem;
       margin: 1.5rem 0;
       color: var(--dark-gray);
@@ -137,11 +117,23 @@
       margin-bottom: 0.5rem;
     }
 
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      font-size: 1.2rem;
+      color: var(--dark-gray);
+    }
+
+    .error {
+      color: #dc3545;
+      text-align: center;
+      padding: 2rem;
+    }
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
       #blog-container {
         padding: 1.5rem;
-        width: 95%;
       }
 
       #blog-container h1 {
@@ -155,113 +147,101 @@
       #blog-container div {
         font-size: 1rem;
       }
-
-      #blog-container div h2 {
-        font-size: 1.5rem;
-      }
-
-      #blog-container div h3 {
-        font-size: 1.3rem;
-      }
-
-      #blog-container div h4 {
-        font-size: 1.1rem;
-      }
     }
 
     @media (max-width: 480px) {
+      .blog-content {
+        padding: 0 1rem;
+      }
+
       #blog-container {
         padding: 1rem;
       }
 
       #blog-container h1 {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
       }
     }
   </style>
 </head>
 <body>
-
   <section class="blog-content">
-
-    <div class="row">
-        <div id="blog-container">
-
-        </div>
-
-        <div class="blog-right">
-                <h3>Post Categories</h3>
-                <div>
-                    <span>Empowering Minds</span>
-                    <span>9</span>
-                </div>
-                <div>
-                    <span>Sports</span>
-                    <span>3</span>
-                </div>
-                <div>
-                    <span>Learners Trip</span>
-                    <span>3</span>
-                </div>
-                <div>
-                    <span>Matric Dance</span>
-                    <span>2</span>
-                </div>
-                <div>
-                    <span>Staff Trip</span>
-                    <span>2</span>
-                </div>
-                <div>
-                    <span>Schools Competition</span>
-                    <span>1</span>
-                </div>
-                <div>
-                    <span>Matric Results</span>
-                    <span>1</span>
-                </div>
-                <div>
-                    <span>Celebrating Excellence</span>
-                    <span>1</span>
-                </div>
-            </div>
+    <div id="blog-container">
+      <div class="loading">Loading blog post...</div>
     </div>
-    
   </section>
 
   <script>
     async function loadBlogPost() {
       const params = new URLSearchParams(window.location.search);
       const blogId = params.get('id');
+      const blogContainer = document.getElementById("blog-container");
+      
       if (!blogId) {
-        document.getElementById("blog-container").innerHTML = "<p>No blog ID provided.</p>";
+        blogContainer.innerHTML = "<p class='error'>No blog ID provided.</p>";
         return;
       }
 
       try {
         const response = await fetch('/data/blogs.json');
+        if (!response.ok) {
+          throw new Error('Failed to fetch blog data');
+        }
         const blogs = await response.json();
         const blog = blogs.find(b => b.id === blogId);
 
         if (!blog) {
-          document.getElementById("blog-container").innerHTML = "<p>Blog not found.</p>";
+          blogContainer.innerHTML = "<p class='error'>Blog not found.</p>";
           return;
         }
 
-        document.title = blog.title;
+        document.title = `${blog.title} | My Blog`;
 
-        document.getElementById("blog-container").innerHTML = `
+        // Format the date if it exists
+        const dateDisplay = blog.date ? 
+          `<div class="blog-date" style="color: var(--dark-gray); margin-bottom: 1rem;">
+            Published on ${new Date(blog.date).toLocaleDateString('en-US', { 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+            })}
+          </div>` : '';
+
+        blogContainer.innerHTML = `
           <h1>${blog.title}</h1>
-          <img src="${blog.image}" alt="${blog.alt}" />
-          <p>${blog.short_description}</p>
-          <div>${blog.content}</div>
+          ${dateDisplay}
+          <img src="${blog.image}" alt="${blog.alt || blog.title}" loading="lazy" />
+          <p class="excerpt">${blog.short_description}</p>
+          <div class="blog-body">${formatBlogContent(blog.content)}</div>
         `;
+
+        // Add subtle animation when content loads
+        blogContainer.style.opacity = '0';
+        blogContainer.style.transition = 'opacity 0.5s ease';
+        setTimeout(() => {
+          blogContainer.style.opacity = '1';
+        }, 100);
+
       } catch (error) {
-        console.error(error);
-        document.getElementById("blog-container").innerHTML = "<p>Error loading blog post.</p>";
+        console.error('Error loading blog post:', error);
+        blogContainer.innerHTML = `
+          <p class="error">Error loading blog post. Please try again later.</p>
+          <p style="text-align: center; margin-top: 1rem;">
+            <a href="/" style="color: var(--secondary-color);">Return to homepage</a>
+          </p>
+        `;
       }
     }
 
-    loadBlogPost();
+    // Helper function to format content if needed
+    function formatBlogContent(content) {
+      // If content is an array (like from a CMS), you could process it here
+      // For now, we'll just return the content as-is
+      return content;
+    }
+
+    // Load the blog post when DOM is ready
+    document.addEventListener('DOMContentLoaded', loadBlogPost);
   </script>
 </body>
 </html>
