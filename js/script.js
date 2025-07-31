@@ -28,6 +28,7 @@ var swiper = new Swiper(".mySwiper", {
   })
 
 
+  //
   document.addEventListener('DOMContentLoaded', function () {
     const blogLeftContainer = document.querySelector('.blog-left');
     const readMoreButtons = []; // To store references to all 'Read More' buttons
