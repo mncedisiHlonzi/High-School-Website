@@ -50,7 +50,7 @@ var swiper = new Swiper(".mySwiper", {
                     <h2>${post.title}</h2>
                     <p>${post.short_description}</p>
                     <span class="read-more-btn-b">
-                        <a href="blog-view.html?id=${post.id}">Read More...</a>
+                        <a href="https://shengez.co.za/blog-view?id=${post.id}">Read More...</a>
                     </span>
                 `;
                 blogLeftContainer.appendChild(blogContainer);
