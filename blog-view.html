@@ -54,6 +54,25 @@
       width: 100%;
     }
 
+    .blog-right{
+    flex-basis: 32%;
+}
+.blog-right h3{
+    background: gold;
+    color: black;
+    padding: 7px 0;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.blog-right div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #555;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
     #blog-container p:first-of-type {
       font-size: 1.2rem;
       color: var(--dark-gray);
@@ -162,8 +181,51 @@
   </style>
 </head>
 <body>
+
   <section class="blog-content">
-    <div id="blog-container"></div>
+
+    <div class="row">
+        <div id="blog-container">
+
+        </div>
+
+        <div class="blog-right">
+                <h3>Post Categories</h3>
+                <div>
+                    <span>Empowering Minds</span>
+                    <span>9</span>
+                </div>
+                <div>
+                    <span>Sports</span>
+                    <span>3</span>
+                </div>
+                <div>
+                    <span>Learners Trip</span>
+                    <span>3</span>
+                </div>
+                <div>
+                    <span>Matric Dance</span>
+                    <span>2</span>
+                </div>
+                <div>
+                    <span>Staff Trip</span>
+                    <span>2</span>
+                </div>
+                <div>
+                    <span>Schools Competition</span>
+                    <span>1</span>
+                </div>
+                <div>
+                    <span>Matric Results</span>
+                    <span>1</span>
+                </div>
+                <div>
+                    <span>Celebrating Excellence</span>
+                    <span>1</span>
+                </div>
+            </div>
+    </div>
+    
   </section>
 
   <script>
