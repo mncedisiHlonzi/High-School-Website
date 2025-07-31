@@ -450,7 +450,7 @@ ul{
 <body>
     <section class="blog-header">
         <div class="header-image-container">
-            <img src="https://shengez.co.za/css/pictures/md4-1.webp" alt="Shengeza High School - contact" class="header-image">
+            <img src="${blog.image}" alt="${blog.alt || blog.title}" loading="lazy" />
             <div class="overlay"></div>
         </div>
         <nav>
@@ -526,70 +526,73 @@ ul{
 
   <script>
     async function loadBlogPost() {
-      const params = new URLSearchParams(window.location.search);
-      const blogId = params.get('id');
-      const blogContainer = document.getElementById("blog-container");
-      
-      if (!blogId) {
-        blogContainer.innerHTML = "<p class='error'>No blog ID provided.</p>";
-        return;
-      }
+  const params = new URLSearchParams(window.location.search);
+  const blogId = params.get('id');
+  const blogContainer = document.getElementById("blog-container");
+  const headerImage = document.querySelector(".header-image");
+  
+  if (!blogId) {
+    blogContainer.innerHTML = "<p class='error'>No blog ID provided.</p>";
+    return;
+  }
 
-      try {
-        const response = await fetch('https://shengez.co.za/data/blogs.json');
-        if (!response.ok) {
-          throw new Error('Failed to fetch blog data');
-        }
-        const blogs = await response.json();
-        const blog = blogs.find(b => b.id === blogId);
-
-        if (!blog) {
-          blogContainer.innerHTML = "<p class='error'>Blog not found.</p>";
-          return;
-        }
-
-        document.title = `${blog.title} | My Blog`;
-
-        // Format the date if it exists
-        const dateDisplay = blog.date ? 
-          `<div class="blog-date" style="color: var(--dark-gray); margin-bottom: 1rem;">
-            Published on ${new Date(blog.date).toLocaleDateString('en-US', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
-            })}
-          </div>` : '';
-
-        blogContainer.innerHTML = `
-        <h1>${blog.title}</h1>
-        ${dateDisplay}
-        <img src="${blog.image}" alt="${blog.alt || blog.title}" loading="lazy" />
-        <p class="excerpt">${blog.short_description}</p>
-        <div class="blog-body">${formatBlogContent(blog.content)}</div>
-
-        <div style="margin-top: 2rem; text-align: center;">
-            <a href="https://shengez.co.za/blog" class="back-btn">← Back to All Blogs</a>
-        </div>
-        `;
-
-
-        // Add subtle animation when content loads
-        blogContainer.style.opacity = '0';
-        blogContainer.style.transition = 'opacity 0.5s ease';
-        setTimeout(() => {
-          blogContainer.style.opacity = '1';
-        }, 100);
-
-      } catch (error) {
-        console.error('Error loading blog post:', error);
-        blogContainer.innerHTML = `
-          <p class="error">Error loading blog post. Please try again later.</p>
-          <p style="text-align: center; margin-top: 1rem;">
-            <a href="/" style="color: var(--secondary-color);">Return to homepage</a>
-          </p>
-        `;
-      }
+  try {
+    const response = await fetch('https://shengez.co.za/data/blogs.json');
+    if (!response.ok) {
+      throw new Error('Failed to fetch blog data');
     }
+    const blogs = await response.json();
+    const blog = blogs.find(b => b.id === blogId);
+
+    if (!blog) {
+      blogContainer.innerHTML = "<p class='error'>Blog not found.</p>";
+      return;
+    }
+
+    // Update the header image with the blog's image
+    headerImage.src = blog.image;
+    headerImage.alt = blog.alt || blog.title;
+
+    document.title = `${blog.title} | My Blog`;
+
+    // Format the date if it exists
+    const dateDisplay = blog.date ? 
+      `<div class="blog-date" style="color: var(--dark-gray); margin-bottom: 1rem;">
+        Published on ${new Date(blog.date).toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        })}
+      </div>` : '';
+
+    blogContainer.innerHTML = `
+    <h1>${blog.title}</h1>
+    ${dateDisplay}
+    <p class="excerpt">${blog.short_description}</p>
+    <div class="blog-body">${formatBlogContent(blog.content)}</div>
+
+    <div style="margin-top: 2rem; text-align: center;">
+        <a href="https://shengez.co.za/blog" class="back-btn">← Back to All Blogs</a>
+    </div>
+    `;
+
+    // Add subtle animation when content loads
+    blogContainer.style.opacity = '0';
+    blogContainer.style.transition = 'opacity 0.5s ease';
+    setTimeout(() => {
+      blogContainer.style.opacity = '1';
+    }, 100);
+
+  } catch (error) {
+    console.error('Error loading blog post:', error);
+    blogContainer.innerHTML = `
+      <p class="error">Error loading blog post. Please try again later.</p>
+      <p style="text-align: center; margin-top: 1rem;">
+        <a href="/" style="color: var(--secondary-color);">Return to homepage</a>
+      </p>
+    `;
+  }
+}
 
     // Helper function to format content if needed
     function formatBlogContent(content) {
