@@ -348,7 +348,7 @@
         <!-- Background image div added here -->
         <div class="header-bg">
             <img id="slider1" class="desktop-bg" src="https://shengez.co.za/css/pictures/dut7.webp" alt="Slide 1">
-            <img id="slider2" class="desktop-bg" src="https://shengez.co.za/css/pictures/dut5.webp" alt="Slide 2" style="opacity: 0;">
+            <img id="slider2" class="desktop-bg" src="https://shengez.co.za/css/pictures/dut1.webp" alt="Slide 2" style="opacity: 0;">
         </div>
 
 
@@ -385,20 +385,32 @@
     </section>
 
     <script>
-    const images = [
-        "https://shengez.co.za/css/pictures/dut7.webp",
-        "https://shengez.co.za/css/pictures/dut5.webp",
-        "https://shengez.co.za/css/pictures/dut4.webp",
-        "https://shengez.co.za/css/pictures/dut3.webp",
-        "https://shengez.co.za/css/pictures/dut2.webp",
-        "https://shengez.co.za/css/pictures/dut1.webp"
-    ];
+  const desktopImages = [
+    "https://shengez.co.za/css/pictures/dut7.webp",
+    "https://shengez.co.za/css/pictures/dut1.webp",
+    "https://shengez.co.za/css/pictures/dut2.webp",
+    "https://shengez.co.za/css/pictures/dut3.webp"
+  ];
 
-    let current = 0;
+  const mobileImages = [
+    "https://shengez.co.za/css/pictures/s-7.webp",
+    "https://shengez.co.za/css/pictures/cl27.webp",
+    "https://shengez.co.za/css/pictures/md-19.webp",
+    "https://shengez.co.za/css/pictures/md4-5.webp"
+  ];
+
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const images = isMobile ? mobileImages : desktopImages;
+
+  let current = 0;
   let showingFirst = true;
 
   const img1 = document.getElementById("slider1");
   const img2 = document.getElementById("slider2");
+
+  img1.src = images[0];
+  img2.src = images[1];
+  img2.style.opacity = 0;
 
   setInterval(() => {
     current = (current + 1) % images.length;
@@ -415,8 +427,9 @@
     }
 
     showingFirst = !showingFirst;
-  }, 5000); // every 5 seconds
-    </script>
+  }, 5000);
+</script>
+
 
 
     <style>
