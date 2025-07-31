@@ -4,7 +4,174 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog Post</title>
-  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    :root {
+      --primary-color: #4361ee;
+      --secondary-color: #3f37c9;
+      --text-color: #333;
+      --light-gray: #f8f9fa;
+      --medium-gray: #e9ecef;
+      --dark-gray: #6c757d;
+      --max-content-width: 1200px;
+      --content-width: 90%;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-gray);
+      padding: 0;
+      margin: 0;
+    }
+
+    .blog-content {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 0;
+    }
+
+    #blog-container {
+      width: var(--content-width);
+      max-width: var(--max-content-width);
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 2rem;
+      margin: 0 auto;
+    }
+
+    #blog-container h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+      line-height: 1.2;
+    }
+
+    #blog-container img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--border-radius);
+      margin-bottom: 1.5rem;
+      object-fit: cover;
+      max-height: 500px;
+    }
+
+    #blog-container p:first-of-type {
+      font-size: 1.2rem;
+      color: var(--dark-gray);
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    #blog-container div {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    #blog-container div p {
+      margin-bottom: 1.5rem;
+    }
+
+    #blog-container div h2,
+    #blog-container div h3,
+    #blog-container div h4 {
+      margin: 2rem 0 1rem;
+      color: var(--secondary-color);
+    }
+
+    #blog-container div h2 {
+      font-size: 1.8rem;
+    }
+
+    #blog-container div h3 {
+      font-size: 1.5rem;
+    }
+
+    #blog-container div h4 {
+      font-size: 1.3rem;
+    }
+
+    #blog-container div a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    #blog-container div a:hover {
+      text-decoration: underline;
+      color: var(--secondary-color);
+    }
+
+    #blog-container div blockquote {
+      border-left: 4px solid var(--primary-color);
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+      color: var(--dark-gray);
+      font-style: italic;
+    }
+
+    #blog-container div ul,
+    #blog-container div ol {
+      margin: 1.5rem 0;
+      padding-left: 2rem;
+    }
+
+    #blog-container div li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      #blog-container {
+        padding: 1.5rem;
+        width: 95%;
+      }
+
+      #blog-container h1 {
+        font-size: 2rem;
+      }
+
+      #blog-container p:first-of-type {
+        font-size: 1.1rem;
+      }
+
+      #blog-container div {
+        font-size: 1rem;
+      }
+
+      #blog-container div h2 {
+        font-size: 1.5rem;
+      }
+
+      #blog-container div h3 {
+        font-size: 1.3rem;
+      }
+
+      #blog-container div h4 {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #blog-container {
+        padding: 1rem;
+      }
+
+      #blog-container h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <section class="blog-content">
