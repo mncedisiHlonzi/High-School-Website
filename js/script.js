@@ -31,12 +31,10 @@ var swiper = new Swiper(".mySwiper", {
   //
   document.addEventListener('DOMContentLoaded', function () {
     const blogLeftContainer = document.querySelector('.blog-left');
-    const readMoreButtons = []; // To store references to all 'Read More' buttons
 
-    // Function to fetch and display blog posts
     async function fetchBlogPosts() {
         try {
-            const response = await fetch('https://shengez.co.za/data/blogs.json'); // Adjust path if needed
+            const response = await fetch('https://shengez.co.za/data/blogs.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -45,24 +43,18 @@ var swiper = new Swiper(".mySwiper", {
             blogPosts.forEach(post => {
                 const blogContainer = document.createElement('div');
                 blogContainer.classList.add('container-b');
-                blogContainer.setAttribute('data-blog-id', post.id); // Optional: add a data attribute for ID
+                blogContainer.setAttribute('data-blog-id', post.id);
 
                 blogContainer.innerHTML = `
                     <img src="${post.image}" alt="${post.alt}">
                     <h2>${post.title}</h2>
-                    <p>
-                        ${post.short_description}
-                        <span class="read-more-text-b">
-                            ${post.content}
-                        </span>
-                    </p>
-                    <span class="read-more-btn-b">Read More...</span>
+                    <p>${post.short_description}</p>
+                    <span class="read-more-btn-b">
+                        <a href="blog-view.html?id=${post.id}">Read More...</a>
+                    </span>
                 `;
                 blogLeftContainer.appendChild(blogContainer);
             });
-
-            // After all posts are added, re-initialize read more functionality
-            initializeReadMore();
 
         } catch (error) {
             console.error('Error fetching blog posts:', error);
@@ -70,38 +62,23 @@ var swiper = new Swiper(".mySwiper", {
         }
     }
 
-    // Initialize Read More/Less functionality
-    function initializeReadMore() {
-        const parentContainer = document.querySelector('.blog-left'); // Target the container where blogs are added
-        parentContainer.addEventListener('click', event => {
-            const current = event.target;
-            const isReadMoreBtn = current.classList.contains('read-more-btn-b'); // Use classList.contains for robustness
-
-            if (!isReadMoreBtn) return;
-
-            const currentText = current.parentNode.querySelector('.read-more-text-b');
-            currentText.classList.toggle('read-more-text-b--show');
-            current.textContent = current.textContent.includes('Read More') ?
-                "Read Less..." : "Read More...";
-        });
-    }
-
-    // Call the function to fetch and display blog posts when the DOM is loaded
     fetchBlogPosts();
 
-    // Your existing nav menu and context menu scripts
+    // Menu controls
     var navLinks = document.getElementById("navLinks");
-    function showMenu(){
+    window.showMenu = function() {
         navLinks.style.right = "0";
     }
-    function hideMenu(){
+    window.hideMenu = function() {
         navLinks.style.right = "-200px";
     }
 
+    // Disable right-click
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault();
     });
 });
+
 
 
 
