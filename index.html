@@ -347,9 +347,9 @@
     <section class="header">
         <!-- Background image div added here -->
         <div class="header-bg">
-            <img src="https://shengez.co.za/css/pictures/dut7.webp" alt="Shengeza High School Background" class="desktop-bg">
-            <img src="https://shengez.co.za/css/pictures/dut7.webp" alt="Shengeza High School Background Mobile" class="mobile-bg">
-        </div>
+  <img id="slider" src="https://shengez.co.za/css/pictures/dut7.webp" alt="Shengeza High School Background" class="desktop-bg">
+</div>
+
         
         <nav>
             <a href="https://shengez.co.za/"><img src="https://shengez.co.za/Images/Badge.webp" alt="Badge - shengeza high school"></a>
@@ -381,6 +381,33 @@
             <a href="https://shengez.co.za/about" class="hero-btn">Check Us To Know More</a>
         </div>
     </section>
+
+    <script>
+    const images = [
+        "https://shengez.co.za/css/pictures/dut7.webp",
+        "https://shengez.co.za/css/pictures/Shengeza-Web.webp",
+        "https://shengez.co.za/css/pictures/md4-1.webp",
+        "https://shengez.co.za/css/pictures/md-16.webp"
+    ];
+
+    let current = 0;
+    const slider = document.getElementById("slider");
+
+    setInterval(() => {
+        // Fade out
+        slider.style.opacity = 0;
+
+        setTimeout(() => {
+        // Change image
+        current = (current + 1) % images.length;
+        slider.src = images[current];
+
+        // Fade in
+        slider.style.opacity = 1;
+        }, 1000); // matches the fade-out duration
+    }, 5000); // change image every 5 seconds
+    </script>
+
 
     <style>
     .header {
