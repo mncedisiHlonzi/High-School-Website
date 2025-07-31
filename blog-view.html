@@ -13,7 +13,6 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://shengez.co.za/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="https://shengez.co.za/css/style.css">
 
   <!-- ✅ Open Graph (for Facebook, LinkedIn) -->
   <meta property="og:title" content="Blog Post | Shengeza High School" />
@@ -186,9 +185,108 @@
     }
 
     .back-btn:hover {
-        text-decoration: none;
+        text-decoration: none !important;
     }
 
+    .footer{
+	background-color: #24262b;
+    padding: 5px 0;
+}
+.footer .container{
+	max-width: 1170px;
+	margin:auto;
+    height: auto;
+    padding: 0 0;
+}
+.footer .row{
+	display: flex;
+	flex-wrap: wrap;
+    width: 95%;
+    margin-bottom: 10px;
+}
+.footer-col ul{
+	list-style: none;
+}
+.footer-col{
+   width: 20%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: gold;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 500;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: gold;
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #111;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: gold;
+	background-color: #ffffff;
+}
+.footer-bottom{
+    background: #111;
+    width: inherit;
+    padding: 5px 0;
+    text-align: center;
+}
+.footer-bottom p{
+    font-size: 14px;
+    word-spacing: 2px;
+    color: #fff;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+@media(max-width: 700px){
+    .footer-col{
+      width: 50%;
+      margin-bottom: 30px;
+   }
+}
+ @media(max-width: 574px){
+    .footer-col{
+      width: 70%;
+    }
+  }
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
