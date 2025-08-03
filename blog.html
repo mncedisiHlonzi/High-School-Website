@@ -30,17 +30,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="https://shengez.co.za/Images/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://shengez.co.za/Images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://shengez.co.za/Images/favicons/favicon-16x16.png">
-    <!--<link rel="manifest" href="https://shengez.co.za/Images/favicons/site.webmanifest">-->
+    <link rel="manifest" href="https://shengez.co.za/Images/favicons/site.webmanifest">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
-    <!-- PWA manifest -->
-    <link rel="manifest" href="https://shengez.co.za/manifest.json">
-    <meta name="theme-color" content="#004d40">
-    <link rel="apple-touch-icon" href="https://shengez.co.za/icons/icon-192x192.png">
-
-
     <link rel="canonical" href="https://shengez.co.za/blog" />
     <title>Blogs - Shengeza high school</title>
 
@@ -55,36 +48,6 @@
         "description": "News, updates, and stories from Shengeza High School."
         }
     </script>
-
-    <script>
-  let deferredPrompt;
-  const installButton = document.getElementById('installButton');
-
-  // Hide the button until it's available
-  installButton.style.display = 'none';
-
-  window.addEventListener('beforeinstallprompt', (e) => {
-    // Prevent the default mini-infobar
-    e.preventDefault();
-    deferredPrompt = e;
-    installButton.style.display = 'block';
-  });
-
-  installButton.addEventListener('click', async () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === 'accepted') {
-        console.log('User accepted the install prompt.');
-      } else {
-        console.log('User dismissed the install prompt.');
-      }
-      deferredPrompt = null;
-      installButton.style.display = 'none';
-    }
-  });
-</script>
-
 </head>
 <body>
     <section class="blog-header">
@@ -106,12 +69,6 @@
                     <li><a href="https://shengez.co.za/policy">POLICY</a></li>
                     <li><a href="https://shengez.co.za/appreciation">APPRECIATION</a></li>
                     <li><a href="https://shengez.co.za/contact">CONTACT US</a></li>
-                    <li>
-                        <button id="installButton" style="margin-top: 10px; background-color: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">
-                            Install App
-                        </button>
-                    </li>
-
                 </ul>
             </div>
             <i class="bi bi-filter-right" onclick="showMenu()"></i>
@@ -259,20 +216,6 @@
             <p style="color: #ccc;">Copyright © Shengeza High School 2025 | All Rights Reserved</p>
         </div>
    </footer>
-
-   <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker.register('https://shengez.co.za/service-worker.js')
-        .then(function (registration) {
-          console.log('Service Worker registered with scope:', registration.scope);
-        }, function (err) {
-          console.log('Service Worker registration failed:', err);
-        });
-    });
-  }
-</script>
-
 
     <script>
         var navLinks = document.getElementById("navLinks");
