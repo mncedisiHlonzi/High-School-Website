@@ -350,6 +350,44 @@
         }
     </script>
 
+    <script>
+  let deferredPrompt;
+  const installBtn = document.getElementById('installButton');
+
+  // Listen for the beforeinstallprompt event
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent the mini-infobar from appearing on mobile
+    e.preventDefault();
+    // Stash the event so it can be triggered later
+    deferredPrompt = e;
+    // Show the install button
+    installBtn.hidden = false;
+  });
+
+  // Handle the button click
+  installBtn.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt(); // Show the install prompt
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        console.log('User accepted the install prompt ✅');
+      } else {
+        console.log('User dismissed the install prompt ❌');
+      }
+      // Clear the deferred prompt
+      deferredPrompt = null;
+      installBtn.hidden = true; // Optionally hide the button again
+    }
+  });
+
+  // Optionally detect if already installed
+  window.addEventListener('appinstalled', () => {
+    console.log('App was installed ✔');
+    installBtn.hidden = true;
+  });
+</script>
+
+
 </head>
 
 <body>
@@ -363,6 +401,8 @@
 
         
         <nav>
+            <button id="installButton" hidden>Install App</button>
+
             <a href="https://shengez.co.za/"><img src="https://shengez.co.za/Images/Badge.webp" alt="Badge - shengeza high school"></a>
             <div class="nav-links" id="navLinks">
                 <i class="bi bi-x" onclick="hideMenu()"></i>
