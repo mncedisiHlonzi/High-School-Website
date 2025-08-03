@@ -69,14 +69,8 @@
                     <li><a href="https://shengez.co.za/policy">POLICY</a></li>
                     <li><a href="https://shengez.co.za/appreciation">APPRECIATION</a></li>
                     <li><a href="https://shengez.co.za/contact">CONTACT US</a></li>
-
                     <li>
-                        <button 
-                        id="installButton" 
-                        style="margin-top: 10px; background-color: #ffffff; color: #000; border: 2px solid gold; padding: 10px 15px; border-radius: 5px; cursor: pointer;"
-                        >
-                            Install App
-                        </button>
+                        <button id="installButton">Install App</button>
                     </li>
                 </ul>
             </div>
@@ -127,6 +121,26 @@
 
     nav {
         position: relative;
+    }
+
+    /* Hide by default */
+    #installButton {
+        display: none;
+    }
+    
+    /* Show only on mobile screens (adjust breakpoint as needed) */
+    @media (max-width: 768px) {
+        #installButton {
+        display: block;
+        margin-top: 10px;
+        background-color: #ffffff;
+        color: #000;
+        border: 2px solid gold;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 500;
+        }
     }
     </style>
 
