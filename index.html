@@ -1271,54 +1271,56 @@
     </script>
 
     <script>
-  let deferredPrompt;
-  const installBtn = document.getElementById('installButton');
+        let deferredPrompt;
+        const installBtn = document.getElementById('installButton');
 
-  // First check if mobile device
-  function isMobileDevice() {
-    return (typeof window.orientation !== "undefined") || 
-           (navigator.userAgent.indexOf('IEMobile') !== -1) ||
-           (window.matchMedia("(max-width: 768px)").matches);
-  }
-
-  // Check if app is already installed
-  if (window.matchMedia('(display-mode: standalone)').matches || 
-      window.navigator.standalone ||
-      localStorage.getItem('appInstalled') === 'true') {
-    installBtn.style.display = 'none';
-  }
-
-  // Only proceed if mobile device
-  if (isMobileDevice()) {
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      if (!(window.matchMedia('(display-mode: standalone)').matches || 
-           window.navigator.standalone)) {
-        installBtn.style.display = 'block';
-      }
-    });
-
-    installBtn.addEventListener('click', async () => {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === 'accepted') {
-          localStorage.setItem('appInstalled', 'true');
-          installBtn.style.display = 'none';
+        // Check if the app is already installed (using localStorage)
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+            installBtn.hidden = true;
         }
-        deferredPrompt = null;
-      }
-    });
 
-    window.addEventListener('appinstalled', () => {
-      localStorage.setItem('appInstalled', 'true');
-      installBtn.style.display = 'none';
-    });
-  } else {
-    installBtn.style.display = 'none';
-  }
-</script>
+        // Listen for the beforeinstallprompt event
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+            // Show the install button only if the app isn't installed
+            if (!(window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone)) {
+            installBtn.hidden = false;
+            }
+        });
+
+        // Handle the button click
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+            deferredPrompt.prompt(); // Show the install prompt
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                console.log('User accepted the install prompt ✅');
+                // Save in localStorage that the app is installed
+                localStorage.setItem('appInstalled', 'true');
+                installBtn.hidden = true;
+            } else {
+                console.log('User dismissed the install prompt ❌');
+            }
+            // Clear the deferred prompt
+            deferredPrompt = null;
+            }
+        });
+
+        // Detect if the app was installed (even if the page was reloaded)
+        window.addEventListener('appinstalled', () => {
+            console.log('App was installed ✔');
+            localStorage.setItem('appInstalled', 'true');
+            installBtn.hidden = true;
+        });
+
+        // Check localStorage on page load
+        if (localStorage.getItem('appInstalled') === 'true') {
+            installBtn.hidden = true;
+        }
+    </script>
    
     <script>
         var navLinks = document.getElementById("navLinks");
