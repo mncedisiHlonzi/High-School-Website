@@ -69,6 +69,12 @@
                     <li><a href="https://shengez.co.za/policy">POLICY</a></li>
                     <li><a href="https://shengez.co.za/appreciation">APPRECIATION</a></li>
                     <li><a href="https://shengez.co.za/contact">CONTACT US</a></li>
+
+                    <li>
+                        <button id="installButton" style="margin-top: 10px; background-color: #ffffff; color: #000; border: 2px slid gold; padding: 10px 15px; border-radius: 5px; cursor: pointer;">
+                            Install App
+                        </button>
+                    </li>
                 </ul>
             </div>
             <i class="bi bi-filter-right" onclick="showMenu()"></i>
@@ -216,6 +222,43 @@
             <p style="color: #ccc;">Copyright © Shengeza High School 2025 | All Rights Reserved</p>
         </div>
    </footer>
+
+   <script>
+  let deferredPrompt;
+  const installBtn = document.getElementById('installButton');
+
+  // Listen for the beforeinstallprompt event
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent the mini-infobar from appearing on mobile
+    e.preventDefault();
+    // Stash the event so it can be triggered later
+    deferredPrompt = e;
+    // Show the install button
+    installBtn.hidden = false;
+  });
+
+  // Handle the button click
+  installBtn.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt(); // Show the install prompt
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        console.log('User accepted the install prompt ✅');
+      } else {
+        console.log('User dismissed the install prompt ❌');
+      }
+      // Clear the deferred prompt
+      deferredPrompt = null;
+      installBtn.hidden = true; // Optionally hide the button again
+    }
+  });
+
+  // Optionally detect if already installed
+  window.addEventListener('appinstalled', () => {
+    console.log('App was installed ✔');
+    installBtn.hidden = true;
+  });
+</script>
 
     <script>
         var navLinks = document.getElementById("navLinks");
