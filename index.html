@@ -367,12 +367,9 @@
                     <li><a href="https://shengez.co.za/policy">POLICY</a></li>
                     <li><a href="https://shengez.co.za/appreciation">APPRECIATION</a></li>
                     <li><a href="https://shengez.co.za/contact">CONTACT US</a></li>
-
-                    <!--<li>
-                        <button id="installButton" style="margin-top: 10px; background-color: #ffffff; color: #000; border: 2px slid gold; padding: 10px 15px; border-radius: 5px; cursor: pointer;">
-                            Install App
-                        </button>
-                    </li>-->
+                    <li>
+                        <button id="installButton">Install App</button>
+                    </li>
                 </ul>
             </div>
             <i class="bi bi-filter-right" onclick="showMenu()"></i>
@@ -631,6 +628,26 @@
         }
         .nav-links ul{
             padding: 30px;
+        }
+    }
+
+    /* Hide by default */
+    #installButton {
+        display: none;
+    }
+    
+    /* Show only on mobile screens (adjust breakpoint as needed) */
+    @media (max-width: 768px) {
+        #installButton {
+        display: block;
+        margin-top: 10px;
+        background-color: #ffffff;
+        color: #000;
+        border: 2px solid gold;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 500;
         }
     }
     </style>
@@ -1254,41 +1271,56 @@
     </script>
 
     <script>
-  let deferredPrompt;
-  const installBtn = document.getElementById('installButton');
+        let deferredPrompt;
+        const installBtn = document.getElementById('installButton');
 
-  // Listen for the beforeinstallprompt event
-  window.addEventListener('beforeinstallprompt', (e) => {
-    // Prevent the mini-infobar from appearing on mobile
-    e.preventDefault();
-    // Stash the event so it can be triggered later
-    deferredPrompt = e;
-    // Show the install button
-    installBtn.hidden = false;
-  });
+        // Check if the app is already installed (using localStorage)
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+            installBtn.hidden = true;
+        }
 
-  // Handle the button click
-  installBtn.addEventListener('click', async () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt(); // Show the install prompt
-      const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === 'accepted') {
-        console.log('User accepted the install prompt ✅');
-      } else {
-        console.log('User dismissed the install prompt ❌');
-      }
-      // Clear the deferred prompt
-      deferredPrompt = null;
-      installBtn.hidden = true; // Optionally hide the button again
-    }
-  });
+        // Listen for the beforeinstallprompt event
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+            // Show the install button only if the app isn't installed
+            if (!(window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone)) {
+            installBtn.hidden = false;
+            }
+        });
 
-  // Optionally detect if already installed
-  window.addEventListener('appinstalled', () => {
-    console.log('App was installed ✔');
-    installBtn.hidden = true;
-  });
-</script>
+        // Handle the button click
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+            deferredPrompt.prompt(); // Show the install prompt
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                console.log('User accepted the install prompt ✅');
+                // Save in localStorage that the app is installed
+                localStorage.setItem('appInstalled', 'true');
+                installBtn.hidden = true;
+            } else {
+                console.log('User dismissed the install prompt ❌');
+            }
+            // Clear the deferred prompt
+            deferredPrompt = null;
+            }
+        });
+
+        // Detect if the app was installed (even if the page was reloaded)
+        window.addEventListener('appinstalled', () => {
+            console.log('App was installed ✔');
+            localStorage.setItem('appInstalled', 'true');
+            installBtn.hidden = true;
+        });
+
+        // Check localStorage on page load
+        if (localStorage.getItem('appInstalled') === 'true') {
+            installBtn.hidden = true;
+        }
+    </script>
    
     <script>
         var navLinks = document.getElementById("navLinks");
