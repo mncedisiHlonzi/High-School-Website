@@ -341,6 +341,36 @@
         ]
         }
     </script>
+
+    <script>
+  let deferredPrompt;
+  const installButton = document.getElementById('installButton');
+
+  // Hide the button until it's available
+  installButton.style.display = 'none';
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent the default mini-infobar
+    e.preventDefault();
+    deferredPrompt = e;
+    installButton.style.display = 'block';
+  });
+
+  installButton.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        console.log('User accepted the install prompt.');
+      } else {
+        console.log('User dismissed the install prompt.');
+      }
+      deferredPrompt = null;
+      installButton.style.display = 'none';
+    }
+  });
+</script>
+
 </head>
 
 <body>
@@ -367,6 +397,11 @@
                     <li><a href="https://shengez.co.za/policy">POLICY</a></li>
                     <li><a href="https://shengez.co.za/appreciation">APPRECIATION</a></li>
                     <li><a href="https://shengez.co.za/contact">CONTACT US</a></li>
+                    <li>
+                        <button id="installButton" style="margin-top: 10px; background-color: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">
+                            Install App
+                        </button>
+                    </li>
                 </ul>
             </div>
             <i class="bi bi-filter-right" onclick="showMenu()"></i>
