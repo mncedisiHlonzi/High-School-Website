@@ -35,16 +35,18 @@ self.addEventListener('activate', event => {
 
 // Fetch: Serve from cache or fallback
 self.addEventListener('fetch', event => {
-  if (event.request.mode === 'navigate') {
+  if (
+    event.request.mode === 'navigate' ||
+    (event.request.method === 'GET' &&
+     event.request.headers.get('accept')?.includes('text/html'))
+  ) {
     event.respondWith(
-      fetch(event.request)
-        .catch(() => caches.match(OFFLINE_URL))
+      fetch(event.request).catch(() => caches.match('/offline.html'))
     );
   } else {
     event.respondWith(
-      caches.match(event.request).then(response => {
-        return response || fetch(event.request);
-      })
+      caches.match(event.request).then(res => res || fetch(event.request))
     );
   }
 });
+
