@@ -5,11 +5,62 @@
   <title>Offline</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { text-align: center; font-family: sans-serif; margin-top: 20%; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .offline-container {
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .offline-image {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto 1.5rem;
+    }
+
+    h1 {
+      font-size: 0.7rem;
+      margin-bottom: 1rem;
+      color: #222;
+    }
+
+    p {
+      font-size: 0.5rem;
+      color: #666;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>You're offline</h1>
-  <p>Please check your internet connection.</p>
+  <div class="offline-container">
+    <img class="offline-image" src="https://shengez.co.za/Images/wifi.png" alt="No connection">
+    <h1>You're offline</h1>
+    <p>It looks like you're not connected to the internet.<br>Please check your connection and try again.</p>
+  </div>
 </body>
 </html>
