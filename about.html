@@ -132,6 +132,23 @@
     #installButton {
         display: none;
     }
+
+    /*.about-col {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    }
+
+    .about-col img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
+    }*/
     
     /* Show only on mobile screens (adjust breakpoint as needed) */
     @media (max-width: 768px) {
@@ -148,6 +165,38 @@
         }
     }
     </style>
+
+    <script>
+  const aboutImages = [
+    "https://shengez.co.za/Images/sheng-1.webp",
+    "https://shengez.co.za/Images/sheng-2.webp",
+    "https://shengez.co.za/Images/sheng-3.webp"
+  ];
+
+  let aboutCurrent = 0;
+  let aboutShowingFirst = true;
+
+  const aboutImg1 = document.getElementById("aboutSlider1");
+  const aboutImg2 = document.getElementById("aboutSlider2");
+
+  setInterval(() => {
+    aboutCurrent = (aboutCurrent + 1) % aboutImages.length;
+    const nextAboutImg = aboutImages[aboutCurrent];
+
+    if (aboutShowingFirst) {
+      aboutImg2.src = nextAboutImg;
+      aboutImg2.style.opacity = 1;
+      aboutImg1.style.opacity = 0;
+    } else {
+      aboutImg1.src = nextAboutImg;
+      aboutImg1.style.opacity = 1;
+      aboutImg2.style.opacity = 0;
+    }
+
+    aboutShowingFirst = !aboutShowingFirst;
+  }, 5000);
+</script>
+
 
     <section class="about-us">
         <div class="row">
@@ -170,7 +219,8 @@
                 </p>
             </div>
             <div class="about-col">
-                <img src="https://shengez.co.za/Images/sheng-1.webp" alt="About - Shengeza High School">
+                <img id="aboutSlider1" src="https://shengez.co.za/Images/sheng-1.webp" alt="About Image 1">
+                <img id="aboutSlider2" src="https://shengez.co.za/Images/sheng-2.webp" alt="About Image 2" style="opacity: 0;">
             </div>
         </div>
     </section>
