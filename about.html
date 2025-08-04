@@ -170,10 +170,55 @@
                 </p>
             </div>
             <div class="about-col">
-                <img src="https://shengez.co.za/Images/sheng-1.webp" alt="About - shengeza high school">
+                <img id="slider1" src="https://shengez.co.za/Images/sheng-1.webp" alt="Slide 1">
+                <img id="slider2" src="https://shengez.co.za/Images/blog/blog-22/mc1.webp" alt="Slide 2" style="opacity: 0;">
             </div>
         </div>
     </section>
+
+    <script>
+        const desktopImages = [
+            "https://shengez.co.za/Images/sheng-1.webp",
+            "https://shengez.co.za/Images/blog/blog-22/mc1.webp",
+            "https://shengez.co.za/Images/blog/blog-16/md4-25.webp",
+        ];
+
+        const mobileImages = [
+            "https://shengez.co.za/Images/sheng-1.webp",
+            "https://shengez.co.za/Images/blog/blog-22/mc1.webp",
+            "https://shengez.co.za/Images/blog/blog-16/md4-25.webp"
+        ];
+
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
+        const images = isMobile ? mobileImages : desktopImages;
+
+        let current = 0;
+        let showingFirst = true;
+
+        const img1 = document.getElementById("slider1");
+        const img2 = document.getElementById("slider2");
+
+        img1.src = images[0];
+        img2.src = images[1];
+        img2.style.opacity = 0;
+
+        setInterval(() => {
+            current = (current + 1) % images.length;
+            const nextImg = images[current];
+
+            if (showingFirst) {
+            img2.src = nextImg;
+            img2.style.opacity = 1;
+            img1.style.opacity = 0;
+            } else {
+            img1.src = nextImg;
+            img1.style.opacity = 1;
+            img2.style.opacity = 0;
+            }
+
+            showingFirst = !showingFirst;
+        }, 5000);
+    </script>
 
     <section class="head-master">
         <div class="principal-words">
