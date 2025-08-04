@@ -901,6 +901,7 @@ h3{
 }
 .about-col img{
     width: 100%;
+    height: auto;
     position: absolute;
     object-fit: cover;
     transition: opacity 1s ease-in-out;
