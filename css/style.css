@@ -896,6 +896,7 @@ h3{
 .about-col{
     flex-basis: 48%;
     padding: 30px 2px;
+    height: auto;
     position: relative;
     overflow: hidden;
 }
