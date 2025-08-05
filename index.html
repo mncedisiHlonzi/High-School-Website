@@ -1212,14 +1212,45 @@
     </section>
 
     <section class="cta">
-        <!-- Background image div added here -->
         <div class="cta-bg">
-            <img src="https://shengez.co.za/css/pictures/she-1.webp" alt="Shengeza High School CTA Background">
+            <img id="ctaSlider1" src="https://shengez.co.za/css/pictures/she-1.webp" alt="Shengeza CTA Background">
+            <img id="ctaSlider2" src="https://shengez.co.za/css/pictures/Shengeza-Web.webp" alt="Shengeza CTA Background 2" style="opacity: 0;">
         </div>
-        
+
         <h1>Discover Excellence at Shengeza High School</h1>
         <a href="https://shengez.co.za/contact" class="hero-btn">CONTACT US ➡</a>
     </section>
+
+    <script>
+        const ctaImages = [
+            "https://shengez.co.za/css/pictures/she-1.webp",
+            "https://shengez.co.za/css/pictures/Shengeza-Web.webp",
+            "https://shengez.co.za/css/pictures/dut4.webp"
+        ];
+
+        let ctaIndex = 0;
+        let ctaShowingFirst = true;
+
+        const ctaImg1 = document.getElementById("ctaSlider1");
+        const ctaImg2 = document.getElementById("ctaSlider2");
+
+        setInterval(() => {
+            ctaIndex = (ctaIndex + 1) % ctaImages.length;
+            const nextCtaImg = ctaImages[ctaIndex];
+
+            if (ctaShowingFirst) {
+            ctaImg2.src = nextCtaImg;
+            ctaImg2.style.opacity = 1;
+            ctaImg1.style.opacity = 0;
+            } else {
+            ctaImg1.src = nextCtaImg;
+            ctaImg1.style.opacity = 1;
+            ctaImg2.style.opacity = 0;
+            }
+
+            ctaShowingFirst = !ctaShowingFirst;
+        }, 5000); // every 5 seconds
+    </script>
 
     <footer class="footer">
         <div class="container">
