@@ -551,15 +551,19 @@ ul{
    </footer>
 
   <script>
+    // Add this to your JavaScript (before loadBlogPost())
+    if (!new URLSearchParams(window.location.search).has('id')) {
+      window.location.href = 'https://shengez.co.za/blog';
+    }
     async function loadBlogPost() {
       const params = new URLSearchParams(window.location.search);
       const blogId = params.get('id');
       const blogContainer = document.getElementById("blog-container");
       
-      if (!blogId) {
+      /*if (!blogId) {
         blogContainer.innerHTML = "<p class='error'>No blog ID provided.</p>";
         return;
-      }
+      }*/
 
       try {
         const response = await fetch('https://shengez.co.za/data/blogs.json');
