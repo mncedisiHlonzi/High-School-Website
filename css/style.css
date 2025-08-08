@@ -929,6 +929,9 @@ h3{
     flex-basis: 48%;
     padding: 30px 2px;
 }
+.about-col img{
+    width: 100%;
+}
 .about-col-image{
     aspect-ratio: 4 / 3;
     overflow: hidden;
