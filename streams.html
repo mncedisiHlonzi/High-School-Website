@@ -529,6 +529,36 @@
     </script>-->
 
     <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const parentContainer = document.querySelector('.read-more-container');
+            parentContainer.addEventListener('click', event => {
+                const current = event.target;
+                const isReadMoreBtn = current.className.includes('read-more-btn');
+                if (!isReadMoreBtn) return;
+                const currentText = event.target.parentNode.querySelector('.read-more-text');
+                currentText.classList.toggle('read-more-text--show');
+                current.textContent = current.textContent.includes('Read More') ?
+                    "Read Less..." : "Read More...";
+            });
+        });
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+        const parentContainer = document.querySelector('.blog-left');
+        parentContainer.addEventListener('click', event => {
+            const current = event.target;
+            const isReadMoreBtn = current.className.includes('read-more-btn-b');
+            if (!isReadMoreBtn) return;
+            const currentText = event.target.parentNode.querySelector('.read-more-text-b');
+            currentText.classList.toggle('read-more-text-b--show');
+            current.textContent = current.textContent.includes('Read More') ?
+                "Read Less..." : "Read More...";
+        });
+        });
+    </script>
+
+    <script>
         var navLinks = document.getElementById("navLinks");
         function showMenu(){
             navLinks.style.right = "0";
