@@ -228,101 +228,112 @@
 
     nav {
         position: relative;
+        display: flex;
+        padding: 2% 2%;
+        justify-content: space-between;
+        align-items: center;
     }
-
-    nav{
-    display: flex;
-    padding: 2% 2%;
-    justify-content: space-between;
-    align-items: center;
-}
-nav img{
-    width: 115px;
-    height: 100px;
-}
-.nav-links{
-    flex: 1;
-    text-align: right;
-}
-.nav-links ul li{
-    list-style: none;
-    display: inline-block;
-    padding: 8px 12px;
-    position: relative;
-}
-.nav-links ul li a{
-    color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-}
-.nav-links ul li::after{
-    content: '';
-    width: 0;
-    height: 2px;
-    background: gold;
-    display: block;
-    margin: auto;
-    transition: 0.5s;
-}
-.nav-links ul li:hover::after{
-    width: 100%;
-}
-
-nav .bi{
-    display: none;
-}
-@media(max-width: 768px){
-    .nav-links ul li{
-        display: block;
+    
+    .nav-logo {
+        width: 115px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid gold;
+        box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        transition: all 0.3s ease;
     }
+    
+    .nav-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .nav-logo:hover {
+        transform: scale(1.05);
+        border-color: #fff;
+    }
+    
     .nav-links{
-        position: fixed;
-        background: gold;
-        height: 100vh;
-        width: 200px;
-        top: 0;
-        right: -200px;
-        text-align: left;
-        z-index: 2;
-        transition: 1s;
+        flex: 1;
+        text-align: right;
+    }
+    .nav-links ul li{
+        list-style: none;
+        display: inline-block;
+        padding: 8px 12px;
+        position: relative;
     }
     .nav-links ul li a{
-        color: black;
+        color: #fff;
+        text-decoration: none;
+        font-size: 13px;
         font-weight: 500;
     }
     .nav-links ul li::after{
+        content: '';
+        width: 0;
+        height: 2px;
+        background: gold;
+        display: block;
+        margin: auto;
+        transition: 0.5s;
+    }
+    .nav-links ul li:hover::after{
+        width: 100%;
+    }
+
+    nav .bi{
         display: none;
     }
-    .nav-links .bi{
-        color: black;
-    }
-    nav .bi{
-        display: block;
-        color: #fff;
-        margin: 10px;
-        font-size: 22px;
-        cursor: pointer;
-    }
-    .nav-links ul{
-        padding: 30px;
-    }
-    .blog-header h1 {
-        font-size: 0.7rem;
-        color: transparent;
-    }
-
-    .blog-header {
-        height: 30vh;
-    }
-    
-}
-
-/*@media (max-width: 768px) {
-        .header-image {
-            content: url("https://shengez.co.za/css/pictures/blog.webp");
+    @media(max-width: 768px){
+        .nav-links ul li{
+            display: block;
         }
-    }*/
+        .nav-links{
+            position: fixed;
+            background: gold;
+            height: 100vh;
+            width: 200px;
+            top: 0;
+            right: -200px;
+            text-align: left;
+            z-index: 2;
+            transition: 1s;
+        }
+        .nav-links ul li a{
+            color: black;
+            font-weight: 500;
+        }
+        .nav-links ul li::after{
+            display: none;
+        }
+        .nav-links .bi{
+            color: black;
+        }
+        nav .bi{
+            display: block;
+            color: #fff;
+            margin: 10px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        .nav-links ul{
+            padding: 30px;
+        }
+        
+        .nav-logo {
+            width: 80px;
+            height: 80px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .blog-header {
+          height: 30vh;
+        }
+    }
 
     .container{
 	max-width: 1170px;
@@ -481,7 +492,9 @@ ul{
             <div class="overlay"></div>
         </div>
         <nav>
-            <a href="https://shengez.co.za/"><img src="https://shengez.co.za/Images/Badge.webp" alt="Badge - shengeza high school"></a>
+            <a href="https://shengez.co.za/" class="nav-logo" id="nav-logo">
+                <img src="https://shengez.co.za/Images/Badge.webp" alt="Shengeza High School" id="logo-image">
+            </a>
             <div class="nav-links" id="navLinks">
                 <i class="bi bi-x" onclick="hideMenu()"></i>
                 <ul>
@@ -559,6 +572,7 @@ ul{
       const blogContainer = document.getElementById("blog-container");
       const headerImage = document.getElementById("dynamic-header-image");
       const blogHeaderTitle = document.getElementById("blog-header-title");
+      const logoImage = document.getElementById("logo-image");
       
       // Redirect to /blog if no ID is provided
       if (!blogId) {
@@ -580,6 +594,10 @@ ul{
         // Update header image with blog-specific image
         headerImage.src = blog.image;
         headerImage.alt = blog.alt || blog.title;
+        
+        // Update logo/nav image with blog-specific image
+        logoImage.src = blog.image;
+        logoImage.alt = blog.alt || blog.title;
         
         // Update header title with blog title
         blogHeaderTitle.textContent = blog.title;
@@ -650,7 +668,7 @@ ul{
       } catch (error) {
         console.error('Error loading blog post:', error);
         blogContainer.innerHTML = `
-          <p class="error">Error loading blog post. Please try again later.</p>
+          <p class='error'>Error loading blog post. Please try again later.</p>
           <p style="text-align: center; margin-top: 1rem;">
             <a href="/" style="color: var(--secondary-color);">Return to homepage</a>
           </p>
