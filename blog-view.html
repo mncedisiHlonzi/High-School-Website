@@ -765,7 +765,7 @@ ul{
       return content;
     }
 
-    // Share blog function
+    // Share blog function - updated for mobile devices
     function shareBlog(title, url) {
       // Create a temporary input element to copy the URL to clipboard
       const tempInput = document.createElement('input');
@@ -778,11 +778,29 @@ ul{
       // Show toast notification
       showToast('Link copied to clipboard!');
       
-      // Open Facebook share dialog after a short delay
-      setTimeout(() => {
+      // Check if we're on a mobile device
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      
+      if (isMobile) {
+        // For mobile devices, use the Facebook app deep link
+        const appUrl = `fb://share?href=${encodeURIComponent(url)}`;
+        const webUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+        
+        // Try to open the Facebook app
+        window.location.href = appUrl;
+        
+        // Fallback to web if app isn't available
+        setTimeout(() => {
+          if (!document.hidden) {
+            // If we're still on the page, the app didn't open
+            window.open(webUrl, '_blank');
+          }
+        }, 500);
+      } else {
+        // For desktop, open Facebook share dialog in a new window
         const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
         window.open(facebookShareUrl, '_blank', 'width=600,height=400');
-      }, 1000);
+      }
     }
 
     // Toast notification function
