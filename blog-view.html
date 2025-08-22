@@ -644,45 +644,10 @@ ul{
    </footer>
 
   <script>
-    // Redirect to /blog if no ID is provided
     if (!new URLSearchParams(window.location.search).has('id')) {
       window.location.href = 'https://shengez.co.za/blog';
     }
     
-    // Updated sharing function with short URLs
-    function shareBlog(title, originalUrl, shortCode) {
-      // Create the short URL
-      const shortUrl = `https://shengez.co.za/b/${shortCode}`;
-      
-      // Copy short URL to clipboard
-      const tempInput = document.createElement('input');
-      tempInput.value = shortUrl;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand('copy');
-      document.body.removeChild(tempInput);
-      
-      showToast('Short link copied to clipboard!');
-      
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      
-      if (isMobile) {
-        const appUrl = `fb://share?href=${encodeURIComponent(shortUrl)}`;
-        const webUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shortUrl)}`;
-        
-        window.location.href = appUrl;
-        setTimeout(() => {
-          if (!document.hidden) {
-            window.open(webUrl, '_blank');
-          }
-        }, 500);
-      } else {
-        const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shortUrl)}`;
-        window.open(facebookShareUrl, '_blank', 'width=600,height=400');
-      }
-    }
-    
-    // Updated blog loading function
     async function loadBlogPost() {
       const params = new URLSearchParams(window.location.search);
       const blogId = params.get('id');
@@ -729,18 +694,12 @@ ul{
           if (tag) tag.content = content;
         };
 
-        // Get the short code for this blog
-        const shortCode = blog.shortUrl || blogId.replace('blog-', '');
-
-        // Update meta tags with short URL
-        const shortUrl = `https://shengez.co.za/b/${shortCode}`;
         updateMetaTag('og:title', blog.title);
         updateMetaTag('og:description', blog.short_description);
-        updateMetaTag('og:url', shortUrl);
+        updateMetaTag('og:url', window.location.href);
         updateMetaTag('og:image', blog.image);
         updateMetaTag('twitter:title', blog.title);
         updateMetaTag('twitter:description', blog.short_description);
-        updateMetaTag('twitter:url', shortUrl);
         updateMetaTag('twitter:image', blog.image);
 
         // Format the date if it exists
@@ -762,13 +721,13 @@ ul{
 
           <div class="action-buttons">
               <a href="https://shengez.co.za/blog" class="back-btn">Back to All Blogs</a>
-              <button class="share-btn" onclick="shareBlog('${blog.title}', '${window.location.href}', '${shortCode}')">
-                <i class="fab fa-facebook-f"></i> Share
+              <button class="share-btn" onclick="shareBlog('${blog.title}', '${window.location.href}')">
+                <i class="fab fa-facebook-f"></i> Share on Facebook
               </button>
           </div>
         `;
 
-        // Add Schema.org structured data with short URL
+        // Add Schema.org structured data
         const schemaScript = document.createElement('script');
         schemaScript.type = 'application/ld+json';
         schemaScript.textContent = JSON.stringify({
@@ -778,7 +737,6 @@ ul{
           "description": blog.short_description,
           "datePublished": blog.date,
           "image": blog.image,
-          "url": shortUrl,
           "author": {
             "@type": "Organization",
             "name": "Shengeza High School",
@@ -806,6 +764,44 @@ ul{
     // Helper function to format content
     function formatBlogContent(content) {
       return content;
+    }
+
+    // Share blog function - updated for mobile devices
+    function shareBlog(title, url) {
+      // Create a temporary input element to copy the URL to clipboard
+      const tempInput = document.createElement('input');
+      tempInput.value = url;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      
+      // Show toast notification
+      showToast('Link copied to clipboard!');
+      
+      // Check if we're on a mobile device
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      
+      if (isMobile) {
+        // For mobile devices, use the Facebook app deep link
+        const appUrl = `fb://share?href=${encodeURIComponent(url)}`;
+        const webUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+        
+        // Try to open the Facebook app
+        window.location.href = appUrl;
+        
+        // Fallback to web if app isn't available
+        setTimeout(() => {
+          if (!document.hidden) {
+            // If we're still on the page, the app didn't open
+            window.open(webUrl, '_blank');
+          }
+        }, 500);
+      } else {
+        // For desktop, open Facebook share dialog in a new window
+        const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+        window.open(facebookShareUrl, '_blank', 'width=600,height=400');
+      }
     }
 
     // Toast notification function
