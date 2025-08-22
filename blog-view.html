@@ -179,7 +179,7 @@
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
         transition: var(--transition);
-        margin: 0 10px 10px 0;
+        margin: 0 10px;
     }
 
     .back-btn:hover {
@@ -197,7 +197,7 @@
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
         transition: var(--transition);
-        margin: 0 0 10px 10px;
+        margin: 0 10px;
         border: none;
         cursor: pointer;
         font-size: 14px;
@@ -215,11 +215,58 @@
         margin-right: 8px;
     }
 
+    /* Navigation buttons */
+    .nav-btn {
+        display: inline-block;
+        padding: 0.75rem;
+        background-color: #28a745;
+        color: white !important;
+        text-decoration: none;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        transition: var(--transition);
+        margin: 0 10px;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-btn:hover:not(.disabled) {
+        background-color: #218838;
+        transform: translateY(-2px);
+        color: white !important;
+        text-decoration: none;
+    }
+
+    .nav-btn.disabled {
+        background-color: #6c757d;
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    .nav-btn.disabled:hover {
+        transform: none;
+        background-color: #6c757d;
+    }
+
     .action-buttons {
         display: flex;
         justify-content: center;
+        align-items: center;
         flex-wrap: wrap;
         margin-top: 2rem;
+        gap: 10px;
+    }
+
+    .center-buttons {
+        display: flex;
+        gap: 10px;
+        margin: 0 20px;
     }
 
     .blog-header {
@@ -366,13 +413,33 @@
         .action-buttons {
             flex-direction: column;
             align-items: center;
+            gap: 15px;
+        }
+
+        .center-buttons {
+            order: 1;
+            margin: 0;
+        }
+
+        #prev-btn {
+            order: 0;
+        }
+
+        #next-btn {
+            order: 2;
         }
 
         .back-btn, .share-btn {
-            margin: 5px 0;
             width: 100%;
             max-width: 250px;
             text-align: center;
+            margin: 5px 0;
+        }
+
+        .nav-btn {
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
         }
     }
 
@@ -644,6 +711,9 @@ ul{
    </footer>
 
   <script>
+    let allBlogs = [];
+    let currentBlogIndex = -1;
+
     if (!new URLSearchParams(window.location.search).has('id')) {
       window.location.href = 'https://shengez.co.za/blog';
     }
@@ -665,13 +735,17 @@ ul{
       try {
         const response = await fetch('https://shengez.co.za/data/blogs.json');
         if (!response.ok) throw new Error('Failed to fetch blog data');
-        const blogs = await response.json();
-        const blog = blogs.find(b => b.id === blogId);
-
-        if (!blog) {
+        allBlogs = await response.json();
+        
+        // Find current blog and its index
+        currentBlogIndex = allBlogs.findIndex(b => b.id === blogId);
+        
+        if (currentBlogIndex === -1) {
           blogContainer.innerHTML = "<p class='error'>Blog not found.</p>";
           return;
         }
+
+        const blog = allBlogs[currentBlogIndex];
 
         // Update header image with blog-specific image
         headerImage.src = blog.image;
@@ -712,6 +786,10 @@ ul{
             })}
           </div>` : '';
 
+        // Generate navigation buttons
+        const prevBlog = currentBlogIndex > 0 ? allBlogs[currentBlogIndex - 1] : null;
+        const nextBlog = currentBlogIndex < allBlogs.length - 1 ? allBlogs[currentBlogIndex + 1] : null;
+
         blogContainer.innerHTML = `
           <h1>${blog.title}</h1>
           ${dateDisplay}
@@ -720,9 +798,23 @@ ul{
           <div class="blog-body">${formatBlogContent(blog.content)}</div>
 
           <div class="action-buttons">
-              <a href="https://shengez.co.za/blog" class="back-btn">Back to All Blogs</a>
-              <button class="share-btn" onclick="shareBlog('${blog.title}', '${window.location.href}')">
-                <i class="fab fa-facebook-f"></i> Share on Facebook
+              <button class="nav-btn ${!prevBlog ? 'disabled' : ''}" id="prev-btn" 
+                      onclick="${prevBlog ? `navigateToBlog('${prevBlog.id}')` : 'return false;'}"
+                      ${!prevBlog ? 'disabled' : ''}>
+                  <i class="bi bi-chevron-left"></i>
+              </button>
+              
+              <div class="center-buttons">
+                  <a href="https://shengez.co.za/blog" class="back-btn">Back to All Blogs</a>
+                  <button class="share-btn" onclick="shareBlog('${blog.title}', '${window.location.href}')">
+                    <i class="fab fa-facebook-f"></i> Share on Facebook
+                  </button>
+              </div>
+              
+              <button class="nav-btn ${!nextBlog ? 'disabled' : ''}" id="next-btn" 
+                      onclick="${nextBlog ? `navigateToBlog('${nextBlog.id}')` : 'return false;'}"
+                      ${!nextBlog ? 'disabled' : ''}>
+                  <i class="bi bi-chevron-right"></i>
               </button>
           </div>
         `;
@@ -759,6 +851,11 @@ ul{
           </p>
         `;
       }
+    }
+
+    // Navigate to different blog
+    function navigateToBlog(blogId) {
+      window.location.href = `https://shengez.co.za/blog-view?id=${blogId}`;
     }
 
     // Helper function to format content
@@ -815,6 +912,15 @@ ul{
         toast.className = toast.className.replace('show', ''); 
       }, 3000);
     }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft' && currentBlogIndex > 0) {
+        navigateToBlog(allBlogs[currentBlogIndex - 1].id);
+      } else if (e.key === 'ArrowRight' && currentBlogIndex < allBlogs.length - 1) {
+        navigateToBlog(allBlogs[currentBlogIndex + 1].id);
+      }
+    });
 
     // Load the blog post when DOM is ready
     document.addEventListener('DOMContentLoaded', loadBlogPost);
