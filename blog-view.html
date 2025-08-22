@@ -40,8 +40,6 @@
 
   <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-9PWW5RWDTP"></script> <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());   gtag('config', 'G-9PWW5RWDTP'); </script>
 
-  <!-- Styles... -->
-
   <style>
     :root {
       --primary-color: gold;
@@ -79,8 +77,6 @@
 
     #blog-container {
       background: white;
-      /*border-radius: var(--border-radius);
-      box-shadow: var(--box-shadow);*/
       overflow: hidden;
       padding: 2rem;
     }
@@ -96,10 +92,8 @@
     #blog-container img {
       width: 100%;
       height: auto;
-      /*border-radius: var(--border-radius);*/
       margin: 1.5rem 0;
       object-fit: cover;
-      /*max-height: 500px;*/
     }
 
     #blog-container p:first-of-type {
@@ -214,6 +208,7 @@
         height: 100%;
         object-fit: cover;
         object-position: center;
+        transition: opacity 0.5s ease;
     }
 
     .overlay {
@@ -239,7 +234,6 @@
     padding: 2% 2%;
     justify-content: space-between;
     align-items: center;
-    /*background: white;*/
 }
 nav img{
     width: 115px;
@@ -471,7 +465,31 @@ ul{
   </style>
 </head>
 <body>
-    
+    <section class="blog-header">
+        <div class="header-image-container">
+            <img src="https://shengez.co.za/css/pictures/md-16.webp" alt="Shengeza High School - blog" class="header-image" id="dynamic-header-image">
+            <div class="overlay"></div>
+        </div>
+        <nav>
+            <a href="https://shengez.co.za/"><img src="https://shengez.co.za/Images/Badge.webp" alt="Badge - shengeza high school"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="bi bi-x" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="https://shengez.co.za/">HOME</a></li>
+                    <li><a href="https://shengez.co.za/about">ABOUT US</a></li>
+                    <li><a href="https://shengez.co.za/streams">STREAMS</a></li>
+                    <li><a href="https://shengez.co.za/staff">STAFF</a></li>
+                    <li><a href="https://shengez.co.za/alumni">ALUMNI</a></li>
+                    <li><a href="https://shengez.co.za/blog">BLOG</a></li>
+                    <li><a href="https://shengez.co.za/policy">POLICY</a></li>
+                    <li><a href="https://shengez.co.za/appreciation">APPRECIATION</a></li>
+                    <li><a href="https://shengez.co.za/contact">CONTACT US</a></li>
+                </ul>
+            </div>
+            <i class="bi bi-filter-right" onclick="showMenu()"></i>
+        </nav>
+        <h1 id="blog-header-title">Blog</h1>
+    </section>
 
   <section class="blog-content">
     <div id="blog-container">
@@ -511,9 +529,6 @@ ul{
                     <h4>follow us</h4>
                     <div class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61558034292449" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <!--<a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>-->
                     </div>
                 </div>
             </div>
@@ -524,14 +539,16 @@ ul{
    </footer>
 
   <script>
-    
     if (!new URLSearchParams(window.location.search).has('id')) {
       window.location.href = 'https://shengez.co.za/blog';
     }
+    
     async function loadBlogPost() {
       const params = new URLSearchParams(window.location.search);
       const blogId = params.get('id');
       const blogContainer = document.getElementById("blog-container");
+      const headerImage = document.getElementById("dynamic-header-image");
+      const blogHeaderTitle = document.getElementById("blog-header-title");
       
       // Redirect to /blog if no ID is provided
       if (!blogId) {
@@ -550,14 +567,15 @@ ul{
           return;
         }
 
+        // Update header image with blog-specific image
+        headerImage.src = blog.image;
+        headerImage.alt = blog.alt || blog.title;
+        
+        // Update header title with blog title
+        blogHeaderTitle.textContent = blog.title;
+
         // Update page title
         document.title = `${blog.title} | Shengeza High School Blog`;
-
-        // ✅ DYNAMICALLY UPDATE CANONICAL URL
-        const canonicalTag = document.querySelector('link[rel="canonical"]');
-        if (canonicalTag) {
-          canonicalTag.href = window.location.href; // e.g., "https://shengez.co.za/blog-view?id=blog-1"
-        }
 
         // Update OG/Twitter meta tags
         const updateMetaTag = (name, content) => {
@@ -639,8 +657,16 @@ ul{
     document.addEventListener('DOMContentLoaded', loadBlogPost);
   </script>
 
-
   <script>
+    // Navigation menu functions
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+    
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault();
     });
