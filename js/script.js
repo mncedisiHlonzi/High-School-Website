@@ -45,12 +45,16 @@ var swiper = new Swiper(".mySwiper", {
                 blogContainer.classList.add('container-b');
                 blogContainer.setAttribute('data-blog-id', post.id);
 
+                // Get short URL - use shortUrl field if available, otherwise create from ID
+                const shortCode = post.shortUrl || post.id.replace('blog-', '');
+                const shortUrl = `https://shengez.co.za/b/${shortCode}`;
+
                 blogContainer.innerHTML = `
                     <img src="${post.image}" alt="${post.alt}">
                     <h2>${post.title}</h2>
                     <p>${post.short_description}</p>
                    <span class="read-more-btn-b">
-                        <a href="https://shengez.co.za/blog-view?id=${post.id}" style="text-decoration: none; color: grey;">Read More...</a>
+                        <a href="${shortUrl}" style="text-decoration: none; color: grey;">Read More...</a>
                     </span>
                 `;
                 blogLeftContainer.appendChild(blogContainer);
