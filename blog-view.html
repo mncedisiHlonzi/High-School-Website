@@ -14,19 +14,19 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="https://shengez.co.za/css/swiper-bundle.min.css">
 
-  <!-- ✅ Open Graph (for Facebook, LinkedIn) -->
-  <meta property="og:title" content="Blog Post | Shengeza High School" />
-  <meta property="og:description" content="Explore expert insights and helpful tips on the Shengeza blog." />
+  <!-- ✅ Open Graph (for Facebook, LinkedIn) - DYNAMIC VALUES WILL BE SET BY JAVASCRIPT -->
+  <meta property="og:title" content="Blog Post | Shengeza High School" id="og-title" />
+  <meta property="og:description" content="Explore expert insights and helpful tips on the Shengeza blog." id="og-description" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://shengez.co.za/blog-view" />
-  <meta property="og:image" content="https://shengez.co.za/Images/shengeza-logo.webp" />
+  <meta property="og:url" content="https://shengez.co.za/blog-view" id="og-url" />
+  <!-- og:image will be added dynamically by JavaScript -->
 
   <!-- ✅ Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Blog Post | Shengeza High School" />
-  <meta name="twitter:description" content="Explore expert insights and helpful tips on the Shengeza blog." />
-  <meta name="twitter:url" content="https://shengez.co.za/blog-view">
-  <meta name="twitter:image" content="https://shengez.co.za/Images/shengeza-logo.webp" />
+  <meta name="twitter:title" content="Blog Post | Shengeza High School" id="twitter-title" />
+  <meta name="twitter:description" content="Explore expert insights and helpful tips on the Shengeza blog." id="twitter-description" />
+  <meta name="twitter:url" content="https://shengez.co.za/blog-view" id="twitter-url">
+  <!-- twitter:image will be added dynamically by JavaScript -->
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://shengez.co.za/Images/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="https://shengez.co.za/Images/favicons/favicon-32x32.png">
@@ -730,6 +730,32 @@ ul{
       window.location.href = 'https://shengez.co.za/blog';
     }
     
+    // Function to create or update meta tags
+    function updateMetaTag(property, content) {
+      let tag = document.querySelector(`meta[property="${property}"]`);
+      
+      if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute('property', property);
+        document.head.appendChild(tag);
+      }
+      
+      tag.setAttribute('content', content);
+    }
+
+    // Function to create or update name-based meta tags
+    function updateNameMetaTag(name, content) {
+      let tag = document.querySelector(`meta[name="${name}"]`);
+      
+      if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute('name', name);
+        document.head.appendChild(tag);
+      }
+      
+      tag.setAttribute('content', content);
+    }
+    
     async function loadBlogPost() {
       const params = new URLSearchParams(window.location.search);
       const blogId = params.get('id');
@@ -774,19 +800,17 @@ ul{
         document.title = `${blog.title} | Shengeza High School Blog`;
 
         // Update OG/Twitter meta tags
-        const updateMetaTag = (name, content) => {
-          let tag = document.querySelector(`meta[property="${name}"]`) || 
-                  document.querySelector(`meta[name="${name}"]`);
-          if (tag) tag.content = content;
-        };
-
         updateMetaTag('og:title', blog.title);
         updateMetaTag('og:description', blog.short_description);
         updateMetaTag('og:url', window.location.href);
         updateMetaTag('og:image', blog.image);
-        updateMetaTag('twitter:title', blog.title);
-        updateMetaTag('twitter:description', blog.short_description);
-        updateMetaTag('twitter:image', blog.image);
+        updateMetaTag('og:image:alt', blog.alt || blog.title);
+        
+        updateNameMetaTag('twitter:title', blog.title);
+        updateNameMetaTag('twitter:description', blog.short_description);
+        updateNameMetaTag('twitter:url', window.location.href);
+        updateNameMetaTag('twitter:image', blog.image);
+        updateNameMetaTag('twitter:image:alt', blog.alt || blog.title);
 
         // Format the date if it exists
         const dateDisplay = blog.date ? 
