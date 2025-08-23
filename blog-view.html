@@ -419,6 +419,10 @@
         .center-buttons {
             order: 1;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
 
         #prev-btn {
@@ -433,7 +437,7 @@
             width: 100%;
             max-width: 250px;
             text-align: center;
-            margin: 5px 0;
+            margin: 0;
         }
 
         .nav-btn {
@@ -805,9 +809,9 @@ ul{
               </button>
               
               <div class="center-buttons">
-                  <a href="https://shengez.co.za/blog" class="back-btn">All Blogs</a>
+                  <a href="https://shengez.co.za/blog" class="back-btn">Back to All Blogs</a>
                   <button class="share-btn" onclick="shareBlog('${blog.title}', '${window.location.href}')">
-                    <i class="fab fa-facebook-f"></i> Share
+                    <i class="fab fa-facebook-f"></i> Share on Facebook
                   </button>
               </div>
               
