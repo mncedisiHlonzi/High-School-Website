@@ -53,6 +53,307 @@
         }
         }
     </script>
+    <style>
+        /* Header Styles */
+        .header-about {
+            position: relative;
+            height: 50vh;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .header-image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .header-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7));
+        }
+
+        .header-about h1 {
+            margin-top: 100px;
+            position: relative;
+            font-size: 2rem;
+        }
+
+        nav {
+            position: relative;
+        }
+
+        /* Hide by default */
+        #installButton {
+            display: none;
+        }
+        
+        /* Show only on mobile screens (adjust breakpoint as needed) */
+        @media (max-width: 768px) {
+            #installButton {
+                display: block;
+                margin-top: 10px;
+                background-color: #ffffff;
+                color: #000;
+                border: 2px solid gold;
+                padding: 10px 15px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: 500;
+            }
+            
+            .header-image {
+                content: url("https://shengez.co.za/css/pictures/md-11.webp");
+            }
+            
+            .header-about h1 {
+                margin-top: 80px;
+                font-size: 1.8rem;
+                padding: 0 15px;
+            }
+        }
+
+        /* About Section */
+        .about-us {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .about-col {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-col h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .about-col h1:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #f1c40f;
+        }
+
+        .about-col p {
+            text-align: center; font-weight: 400; font-size: 13px; line-height: 1.6;
+        }
+
+        .about-col p span {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .about-col a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        .about-col a:hover {
+            text-decoration: underline;
+        }
+
+        .about-col-image {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .about-col-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        /* Principal Section */
+        .head-master {
+            padding: 60px 5%;
+            background-color: #fff;
+            margin-top: 40px;
+        }
+
+        .principal-words {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 50px;
+        }
+
+        .profile-pic {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .content {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .content h2 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .content h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #f1c40f;
+        }
+
+        .content p {
+            text-align: center; font-weight: 400; font-size: 13px; line-height: 1.6; color: #000;
+        }
+
+        .ap-ref {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            font-weight: 500;
+            font-style: italic;
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+
+        /* Mobile Responsive Improvements */
+        @media (max-width: 768px) {
+            .about-us {
+                padding: 40px 15px;
+            }
+            
+            .about-col, .profile-pic, .content {
+                flex: 100%;
+                min-width: 100%;
+            }
+            
+            .about-col h1 {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+            
+            .about-col p {
+                font-size: 15px;
+                text-align: left;
+                line-height: 1.7;
+            }
+            
+            .about-col-image {
+                height: 250px;
+                margin-top: 20px;
+            }
+            
+            .row {
+                gap: 20px;
+                flex-direction: column;
+            }
+            
+            .head-master {
+                padding: 40px 15px;
+                margin-top: 20px;
+            }
+            
+            .principal-words {
+                gap: 30px;
+                flex-direction: column;
+            }
+            
+            .content h2 {
+                font-size: 1.6rem;
+                margin-bottom: 20px;
+            }
+            
+            .content p {
+                font-size: 15px;
+                text-align: left;
+            }
+            
+            .profile-pic img {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-about {
+                height: 40vh;
+            }
+            
+            .header-about h1 {
+                font-size: 1.5rem;
+                margin-top: 70px;
+            }
+            
+            .about-col h1 {
+                font-size: 1.5rem;
+            }
+            
+            .about-col-image {
+                height: 200px;
+            }
+            
+            .content h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <section class="header-about">
@@ -61,7 +362,7 @@
             <div class="overlay"></div>
         </div>
         <nav>
-            <a href="https://shengez.co.za/"><img src="https://shengez.co.za/Images/Badge.webp" alt="Badge - shengeza high school"></a>
+            <a href="#"><img src="https://shengez.co.za/Images/Badge.webp" alt="Badge - shengeza high school"></a>
             <div class="nav-links" id="navLinks">
                 <i class="bi bi-x" onclick="hideMenu()"></i>
                 <ul>
@@ -84,107 +385,21 @@
         <h1 style="color: #fff;">About Us</h1>
     </section>
 
-    <style>
-    .header-about {
-        position: relative;
-        height: 50vh;
-        width: 100%;
-        text-align: center;
-        color: #fff;
-        overflow: hidden;
-    }
-
-    .header-image-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-    }
-
-    .header-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7));
-    }
-
-    .header-about h1 {
-        margin-top: 100px;
-        position: relative;
-    }
-
-    nav {
-        position: relative;
-    }
-
-    /* Hide by default */
-    #installButton {
-        display: none;
-    }
-
-    /*.about-col {
-    position: relative;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    }
-
-    .about-col img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    transition: opacity 1s ease-in-out;
-    }*/
-    
-    /* Show only on mobile screens (adjust breakpoint as needed) */
-    @media (max-width: 768px) {
-        #installButton {
-        display: block;
-        margin-top: 10px;
-        background-color: #ffffff;
-        color: #000;
-        border: 2px solid gold;
-        padding: 10px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: 500;
-        }
-    }
-    </style>
-
-
     <section class="about-us">
         <div class="row">
             <div class="about-col">
                 <h1>SHENGEZA HIGH SCHOOL</h1>
-                <p style="text-align: center; font-weight: 400; font-size: 13px; line-height: 1.6;">
-                    Established in <span>1995</span> as a beacon of educational excellence, Shengeza High School stands proudly as a commercial school located in the picturesque <span>Mnyayisa area, Ward 4, <a href="https://umhlabuyalingana.gov.za/" style="text-decoration: none; color: #000;">Umhlabuyalingana Local Municipality</a></span>. Offering three streams - General, Science, and Commerce - the school has become synonymous with academic achievement and holistic development.
+                <p>
+                    Established in <span style="color: #000;">1995</span> as a beacon of educational excellence, Shengeza High School stands proudly as a commercial school located in the picturesque <span style="color: #000;">Mnyayisa area, Ward 4, <a href="https://umhlabuyalingana.gov.za/" style="color: #000;">Umhlabuyalingana Local Municipality</a></span>. Offering three streams - General, Science, and Commerce - the school has become synonymous with academic achievement and holistic development.
                 </p>
-                <p style="text-align: center; font-weight: 400; font-size: 13px; line-height: 1.6;">
-                    With a consistent annual learner enrollment of 700 - 750, Shengeza High School boasts a dedicated team of 25 teachers and support staff, including administrators, security personnel, and cleaners. The comprehensive curriculum includes a range of subjects, from Isizulu Home Language and English FAL to Mathematics, Physical Sciences, and Economics. The school's commitment to nurturing well-rounded individuals is evident in subjects such as Life Orientation, Agricultural Sciences, and Tourism.
+                <p>
+                    With a consistent annual learner enrollment of 700 - 750, Shengeza High School boasts a dedicated team of 25 teachers and support staff, including administrators, security personnel, and cleaners. The comprehensive curriculum includes a range of subjects, from Isizulu Home Language and English FAL to Mathematics, Physical Sciences, and Economics.
                 </p>
-                <p style="text-align: center; font-weight: 400; font-size: 13px; line-height: 1.6;">
-                    Under the visionary leadership of Mr. Ngubane SS as the Principal, Mr. Magcaba W as the Deputy Principal, and a dynamic team of Deputy Heads for Commerce, Science, and Communication & Languages, Shengeza High School operates with the utmost dedication to academic excellence. The school's operating hours, from Monday to Thursday (7:30 to 14:45) and Friday (7:30 to 13:30), provide a conducive learning environment.
+                <p>
+                    Under the visionary leadership of Mr. Ngubane SS as the Principal, Mr. Magcaba W as the Deputy Principal, and a dynamic team of Deputy Heads for Commerce, Science, and Communication & Languages, Shengeza High School operates with the utmost dedication to academic excellence.
                 </p>
-                <p style="text-align: center; font-weight: 400; font-size: 13px; line-height: 1.6;">
-                    Shengeza High School takes pride in its commendable pass percentages, reflecting the commitment to academic success: 76.7% in 2021, 80.1% in 2022, and an impressive 89.4% in 2023. The top-performing subjects, including Isizulu Home Language, English FAL, and Agricultural Sciences, underscore the school's emphasis on a balanced and impactful education.
-                </p>
-                <p style="text-align: center; font-weight: 400; font-size: 13px; line-height: 1.6;">
-                    Shengeza High School has earned acclaim for producing a significant number of varsity enrollees annually, a testament to its commitment to preparing students for success beyond the classroom. As the school continues to evolve and excel, it remains a source of inspiration, shaping the future leaders of tomorrow with unwavering dedication and academic prowess. Shengeza High School, where excellence meets opportunity.
+                <p>
+                    Shengeza High School takes pride in its commendable pass percentages, reflecting the commitment to academic success: 76.7% in 2021, 80.1% in 2022, and an impressive 89.4% in 2023.
                 </p>
             </div>
             <div class="about-col">
@@ -199,26 +414,23 @@
     <section class="head-master">
         <div class="principal-words">
             <div class="profile-pic">
-            <img src="https://shengez.co.za/Images/principal-II.webp" alt="Principal - shengeza high school">
+                <img src="https://shengez.co.za/Images/principal-II.webp" alt="Principal - shengeza high school">
             </div>
             <div class="content">
-            <h2 style="text-align: center;">WORDS FROM OUR HEADMASTER</h2>
-            <p style="text-align: center; font-weight: 400; font-size: 13px; line-height: 1.6;">
-                “ I am Sydney Sboniso Ngubane, the third principal of Shengeza High School since its inception in 1995. I take immense pride in being an integral part of Shengeza High School, having joined in 2000 as a History and IsiZulu teacher at the age of 24. In 2013, at the age of 37, I was appointed as principal following the departure of Mr. MA Manyapye, who remains my mentor to this day.
-            </p>
-            <br>
-            <p style="text-align: center; font-weight: 400; font-size: 13px; line-height: 1.6;">
-                Upon joining the school, my primary areas of focus were maintaining discipline for effective learning and teaching, restoring a culture of quality learning and teaching, protecting contact time, eliminating loitering during teaching hours, actively involving different stakeholders, fostering good human relations amongst staff, and fostering positive interactions with learners, parents, and the community at large. Additionally, I aimed to improve academic performance across all grades.
-            </p>
-            <br>
-            <p style="text-align: center; font-weight: 400; font-size: 13px; line-height: 1.6;">
-                Through teamwork, I can confidently say that our learners are exhibiting exemplary behavior, as evidenced by their level of performance, punctuality, and adherence to the school uniform policy. As a result of various stakeholders' involvement, acts of vandalism and theft have decreased drastically. The school's performance is steadily improving every academic year due to the restoration of a culture of learning and teaching, which involves curriculum delivery, management and monitoring, staff appraisal through QMS, and staff development workshops.
-            </p>
-            <br>
-            <p style="text-align: center; font-weight: 400; font-size: 13px; line-height: 1.6;">
-                Last year, in 2023, our matric class achieved an impressive 89.4%, a significant improvement from the previous year's 80.1%. This year, in 2024, our target is to attain a 100% pass rate with quality results. ”
-            </p>
-            <span class="ap-ref" style="font-weight: 500; font-style: italic; font-size: 13px; color: grey;">~ Mr. SS Ngubane ~</span>
+                <h2>WORDS FROM OUR HEADMASTER</h2>
+                <p>
+                    "I am Sydney Sboniso Ngubane, the third principal of Shengeza High School since its inception in 1995. I take immense pride in being an integral part of Shengeza High School, having joined in 2000 as a History and IsiZulu teacher at the age of 24. In 2013, at the age of 37, I was appointed as principal following the departure of Mr. MA Manyapye, who remains my mentor to this day.
+                </p>
+                <p>
+                    Upon joining the school, my primary areas of focus were maintaining discipline for effective learning and teaching, restoring a culture of quality learning and teaching, protecting contact time, eliminating loitering during teaching hours, actively involving different stakeholders, fostering good human relations amongst staff, and fostering positive interactions with learners, parents, and the community at large. Additionally, I aimed to improve academic performance across all grades.
+                </p>
+                <p>
+                    Through teamwork, I can confidently say that our learners are exhibiting exemplary behavior, as evidenced by their level of performance, punctuality, and adherence to the school uniform policy. As a result of various stakeholders' involvement, acts of vandalism and theft have decreased drastically.
+                </p>
+                <p>
+                    Last year, in 2023, our matric class achieved an impressive 89.4%, a significant improvement from the previous year's 80.1%. This year, in 2024, our target is to attain a 100% pass rate with quality results."
+                </p>
+                <span class="ap-ref">~ Mr. SS Ngubane ~</span>
             </div>
         </div>
     </section>
@@ -267,59 +479,7 @@
         </div>
    </footer>
 
-   <!--<script>
-        let deferredPrompt;
-        const installBtn = document.getElementById('installButton');
-
-        // Check if the app is already installed (using localStorage)
-        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
-            installBtn.hidden = true;
-        }
-
-        // Listen for the beforeinstallprompt event
-        window.addEventListener('beforeinstallprompt', (e) => {
-            // Prevent the mini-infobar from appearing on mobile
-            e.preventDefault();
-            // Stash the event so it can be triggered later
-            deferredPrompt = e;
-            // Show the install button only if the app isn't installed
-            if (!(window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone)) {
-            installBtn.hidden = false;
-            }
-        });
-
-        // Handle the button click
-        installBtn.addEventListener('click', async () => {
-            if (deferredPrompt) {
-            deferredPrompt.prompt(); // Show the install prompt
-            const { outcome } = await deferredPrompt.userChoice;
-            if (outcome === 'accepted') {
-                console.log('User accepted the install prompt ✅');
-                // Save in localStorage that the app is installed
-                localStorage.setItem('appInstalled', 'true');
-                installBtn.hidden = true;
-            } else {
-                console.log('User dismissed the install prompt ❌');
-            }
-            // Clear the deferred prompt
-            deferredPrompt = null;
-            }
-        });
-
-        // Detect if the app was installed (even if the page was reloaded)
-        window.addEventListener('appinstalled', () => {
-            console.log('App was installed ✔');
-            localStorage.setItem('appInstalled', 'true');
-            installBtn.hidden = true;
-        });
-
-        // Check localStorage on page load
-        if (localStorage.getItem('appInstalled') === 'true') {
-            installBtn.hidden = true;
-        }
-    </script>-->
-
-    <script>
+   <script>
   const aboutImages = [
     "https://shengez.co.za/Images/sheng-1.webp",
     "https://shengez.co.za/Images/blog/blog-22/mc1.webp",
@@ -360,11 +520,11 @@
             navLinks.style.right = "-200px";
         }
     </script>
-    <script>
+    <!--<script>
         document.addEventListener('contextmenu', function(event) {
             event.preventDefault();
         });
-    </script>
+    </script>-->
 
     <script src="https://shengez.co.za/js/swiper-bundle.min.js"></script>
     <script src="https://shengez.co.za/js/script.js"></script>
