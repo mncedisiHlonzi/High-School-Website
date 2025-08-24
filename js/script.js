@@ -48,9 +48,9 @@ var swiper = new Swiper(".mySwiper", {
                 blogContainer.innerHTML = `
                     <img src="${post.image}" alt="${post.alt}">
                     <h2>${post.title}</h2>
-                    <p style="text-align: center; font-weight: 400; font-size: 13px; line-height: 1.6; color: #000;">${post.short_description}</p>
+                    <p style="font-weight: 400; font-size: 13px; line-height: 1.6; color: #000;">${post.short_description}</p>
                    <span class="read-more-btn-b">
-                        <a href="https://shengez.co.za/blog-view?id=${post.id}" style="text-decoration: none; color: grey;">Read More...</a>
+                        <a href="https://shengez.co.za/blog-view?id=${post.id}" style="text-decoration: none; color: #000;">Read More...</a>
                     </span>
                 `;
                 blogLeftContainer.appendChild(blogContainer);
