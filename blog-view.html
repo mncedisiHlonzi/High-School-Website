@@ -238,6 +238,12 @@
     }
 
     /* Additional share buttons */
+    .back-btn {
+      background-color: transparent;
+      border: 2px solid gold;
+      color: #000;
+    }
+
     .share-twitter {
       background-color: #1da1f2;
     }
@@ -894,7 +900,9 @@
             </button>
             
             <div class="center-buttons">
-              <a href="https://shengez.co.za/blog" class="back-btn">Back to All Blogs</a>
+              <button class="back-btn" onclick="location.href='https://shengez.co.za/blog'">
+                <i class="fas fa-arrow-left"></i> Back to All Blogs
+              </button>
               <button class="share-btn" onclick="shareOnFacebook('${blog.title}', '${currentUrl}', '${optimizedDescription}')">
                 <i class="fab fa-facebook-f"></i> Share on Facebook
               </button>
