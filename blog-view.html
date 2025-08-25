@@ -908,7 +908,7 @@
               <button class="back-btn" onclick="location.href='https://shengez.co.za/blog'">
                 <i class="fas fa-arrow-rotate-left"></i> Back to All Blogs
               </button>
-              <button class="share-btn" onclick="shareOnFacebook('${currentUrl}')">
+              <button class="share-btn" onclick="shareOnFacebook('${blog.title}', '${currentUrl}', '${optimizedDescription}')">
                 <i class="fab fa-facebook-f"></i> Share on Facebook
               </button>
               <button class="share-btn share-twitter" onclick="shareOnTwitter('${blog.title}', '${currentUrl}')">
@@ -1003,7 +1003,7 @@
     }
 
     // Enhanced sharing functions for different platforms
-    function shareOnFacebook(url) {
+    function shareOnFacebook(title, url, description) {
   const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
   
   // Check if we're on mobile
@@ -1013,6 +1013,8 @@
     // Try to use Web Share API first (modern approach)
     if (navigator.share) {
       navigator.share({
+        title: title,
+        text: description,
         url: url
       }).catch(err => {
         // If Web Share API fails, fall back to opening Facebook in browser
