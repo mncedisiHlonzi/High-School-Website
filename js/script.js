@@ -29,7 +29,7 @@ var swiper = new Swiper(".mySwiper", {
 
 
   //
-  document.addEventListener('DOMContentLoaded', function () {
+  /*document.addEventListener('DOMContentLoaded', function () {
     const blogLeftContainer = document.querySelector('.blog-left');
 
     async function fetchBlogPosts() {
@@ -77,7 +77,85 @@ var swiper = new Swiper(".mySwiper", {
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault();
     });
+});*/
+
+
+
+//New//
+document.addEventListener('DOMContentLoaded', function () {
+    const blogLeftContainer = document.querySelector('.blog-left');
+
+    // Map blog IDs to their individual HTML page filenames
+    const blogUrlMap = {
+        'blog-26': 'matric-dance-2025-3.html',
+        'blog-25': 'matric-dance-2025-2.html',
+        'blog-24': 'matric-dance-2025.html',
+        'blog-23': 'matric-2025-trip-to-durban.html',
+        'blog-22': 'School-100%-NSC-pass.html',
+        'blog-21': 'matric-100%-pass-rate.html',
+        'blog-20': 'staff-in-mpumalanga.html',
+        'blog-19': 'senzo-give-back.html',
+        'blog-18': 'mathematics-olympiad.html',
+        'blog-17': 'Matric Dance 2024-2.html',
+        'blog-16': 'matric-dance-2024.html',
+        'blog-15': 'expo-at-KwaHlomula.html',
+        'blog-14': 'school-joins-tourism-campaign.html',
+        'blog-13': 'girls-camp.html',
+        'blog-12': 'matric-2024-Durban2.html',
+        'blog-11': 'matric-2024-Durban.html',
+        'blog-10': 'nomvethe-school-tournament.html',
+        'blog-9': 'trip-to-nomyaca-high-school.html',
+        'blog-8': 'boys-camp.html',
+        'blog-7': 'day-of-sports.html',
+        'blog-6': 'career-exhibition-day-2024.html',
+        'blog-5': 'mr-mthembu-returns.html',
+        'blog-4': 'awareness-day-2023.html',
+        'blog-3': 'educational-excursion-2023.html',
+        'blog-2': 'matric-dance-2023.html',
+        'blog-1': 'staff-in-Capetown-2022.html',
+        // Add more mappings as you create individual pages
+        // If a blog doesn't have an individual page, it will fallback to blog-view
+    };
+
+    async function fetchBlogPosts() {
+        try {
+            const response = await fetch('https://shengez.co.za/data/blogs.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const blogPosts = await response.json();
+
+            blogPosts.forEach(post => {
+                const blogContainer = document.createElement('div');
+                blogContainer.classList.add('container-b');
+                blogContainer.setAttribute('data-blog-id', post.id);
+
+                // Determine the target URL - use individual page if available, otherwise blog-view
+                const individualPage = blogUrlMap[post.id];
+                const targetUrl = individualPage ? 
+                    `https://shengez.co.za/${individualPage}` : 
+                    `https://shengez.co.za/blog-view?id=${post.id}`;
+
+                blogContainer.innerHTML = `
+                    <img src="${post.image}" alt="${post.alt}">
+                    <h2>${post.title}</h2>
+                    <p style="font-weight: 400; font-size: 13px; line-height: 1.6; color: #000; text-align: left;">${post.short_description}</p>
+                    <span class="read-more-btn-b">
+                        <a href="${targetUrl}" style="text-decoration: none; color: #000;">Read More...</a>
+                    </span>
+                `;
+                blogLeftContainer.appendChild(blogContainer);
+            });
+
+        } catch (error) {
+            console.error('Error fetching blog posts:', error);
+            blogLeftContainer.innerHTML = '<p>Failed to load blog posts. Please try again later.</p>';
+        }
+    }
+
+    fetchBlogPosts();
 });
+//
 
 
 
