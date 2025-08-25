@@ -934,7 +934,7 @@
     function navigateToBlog(blogId) {
       const targetPage = blogUrlMap[blogId];
       if (targetPage) {
-        window.location.href = `https://shengez.co.za/${targetPage}`;
+        window.location.href = `https://shengez.co.za/bit/${targetPage}`;
       } else {
         // Fallback to blog-view if no individual page exists yet
         window.location.href = `https://shengez.co.za/blog-view?id=${blogId}`;
