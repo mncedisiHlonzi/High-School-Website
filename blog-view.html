@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ SEO Meta -->
-  <meta name="description" content="Read insightful blog articles on design, technology, and innovation at Shengeza high school." />
+  <!-- ✅ SEO Meta - Will be updated dynamically before page render -->
+  <meta name="description" content="" id="meta-description" />
   <meta name="author" content="Shengeza High School" />
   <meta name="robots" content="index, follow" />
 
@@ -15,12 +15,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   
   <!-- ✅ Open Graph (for Facebook, LinkedIn) - Will be updated dynamically -->
-  <meta property="og:title" content="Blog Post | Shengeza High School" />
-  <meta property="og:description" content="Explore expert insights and helpful tips on the Shengeza blog." />
+  <meta property="og:title" content="" id="og-title" />
+  <meta property="og:description" content="" id="og-description" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://shengez.co.za/blog-view" />
-  <meta property="og:image" content="" />
-  <meta property="og:image:alt" content="" />
+  <meta property="og:url" content="" id="og-url" />
+  <meta property="og:image" content="" id="og-image" />
+  <meta property="og:image:alt" content="" id="og-image-alt" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Shengeza High School" />
@@ -28,11 +28,11 @@
 
   <!-- ✅ Twitter Card - Will be updated dynamically -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Blog Post | Shengeza High School" />
-  <meta name="twitter:description" content="Explore expert insights and helpful tips on the Shengeza blog." />
-  <meta name="twitter:url" content="https://shengez.co.za/blog-view" />
-  <meta name="twitter:image" content="" />
-  <meta name="twitter:image:alt" content="" />
+  <meta name="twitter:title" content="" id="twitter-title" />
+  <meta name="twitter:description" content="" id="twitter-description" />
+  <meta name="twitter:url" content="" id="twitter-url" />
+  <meta name="twitter:image" content="" id="twitter-image" />
+  <meta name="twitter:image:alt" content="" id="twitter-image-alt" />
   <meta name="twitter:site" content="@ShengezaHS" />
   <meta name="twitter:creator" content="@ShengezaHS" />
 
@@ -43,7 +43,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-  <title>Blog Post</title>
+  <title id="page-title">Blog Post</title>
   <link rel="preload" href="https://shengez.co.za/data/blogs.json" as="fetch" crossorigin="anonymous">
 
   <!-- Google tag (gtag.js) -->
@@ -56,6 +56,7 @@
   </script>
 
   <style>
+    /* Your existing CSS styles remain unchanged */
     :root {
       --primary-color: gold;
       --secondary-color: #3498db;
@@ -762,10 +763,72 @@
   </footer>
 
   <script>
+    // Function to get URL parameter
+    function getUrlParameter(name) {
+      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+      const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+      const results = regex.exec(location.search);
+      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Function to update meta tags for social media
+    function updateMetaTags(blog) {
+      if (!blog) return;
+      
+      const absoluteImageUrl = makeImageAbsolute(blog.image);
+      const optimizedDescription = truncateDescription(blog.short_description);
+      const currentUrl = window.location.href;
+
+      // Update regular meta tags
+      document.getElementById('meta-description').content = optimizedDescription;
+      document.getElementById('page-title').textContent = `${blog.title} | Shengeza High School Blog`;
+      
+      // Update Open Graph tags
+      document.getElementById('og-title').content = blog.title;
+      document.getElementById('og-description').content = optimizedDescription;
+      document.getElementById('og-url').content = currentUrl;
+      document.getElementById('og-image').content = absoluteImageUrl;
+      document.getElementById('og-image-alt').content = blog.alt || blog.title;
+      
+      // Update Twitter tags
+      document.getElementById('twitter-title').content = blog.title;
+      document.getElementById('twitter-description').content = optimizedDescription;
+      document.getElementById('twitter-url').content = currentUrl;
+      document.getElementById('twitter-image').content = absoluteImageUrl;
+      document.getElementById('twitter-image-alt').content = blog.alt || blog.title;
+      
+      // Update header image and logo
+      document.getElementById('dynamic-header-image').src = absoluteImageUrl;
+      document.getElementById('dynamic-header-image').alt = blog.alt || blog.title;
+      document.getElementById('logo-image').src = absoluteImageUrl;
+      document.getElementById('logo-image').alt = blog.alt || blog.title;
+      
+      // Update header title
+      document.getElementById('blog-header-title').textContent = blog.title;
+    }
+
+    // Function to ensure image URLs are absolute
+    function makeImageAbsolute(imageUrl) {
+      if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+        return imageUrl;
+      }
+      // If it's a relative URL, make it absolute
+      return `https://shengez.co.za${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
+    }
+
+    // Function to truncate description for optimal sharing
+    function truncateDescription(description, maxLength = 160) {
+      if (!description) return 'Explore expert insights and helpful tips on the Shengeza blog.';
+      if (description.length <= maxLength) return description;
+      return description.substr(0, maxLength).split(' ').slice(0, -1).join(' ') + '...';
+    }
+
     let allBlogs = [];
     let currentBlogIndex = -1;
 
-    if (!new URLSearchParams(window.location.search).has('id')) {
+    // Check if ID parameter exists, redirect if not
+    const blogId = getUrlParameter('id');
+    if (!blogId) {
       window.location.href = 'https://shengez.co.za/blog';
     }
     
@@ -790,36 +853,10 @@
         document.head.appendChild(tag);
       }
     }
-
-    // Function to ensure image URLs are absolute
-    function makeImageAbsolute(imageUrl) {
-      if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
-        return imageUrl;
-      }
-      // If it's a relative URL, make it absolute
-      return `https://shengez.co.za${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
-    }
-
-    // Function to truncate description for optimal sharing
-    function truncateDescription(description, maxLength = 160) {
-      if (description.length <= maxLength) return description;
-      return description.substr(0, maxLength).split(' ').slice(0, -1).join(' ') + '...';
-    }
     
     async function loadBlogPost() {
-      const params = new URLSearchParams(window.location.search);
-      const blogId = params.get('id');
       const blogContainer = document.getElementById("blog-container");
-      const headerImage = document.getElementById("dynamic-header-image");
-      const blogHeaderTitle = document.getElementById("blog-header-title");
-      const logoImage = document.getElementById("logo-image");
       
-      // Redirect to /blog if no ID is provided
-      if (!blogId) {
-        window.location.href = 'https://shengez.co.za/blog';
-        return;
-      }
-
       try {
         const response = await fetch('https://shengez.co.za/data/blogs.json');
         if (!response.ok) throw new Error('Failed to fetch blog data');
@@ -838,43 +875,8 @@
         const absoluteImageUrl = makeImageAbsolute(blog.image);
         const optimizedDescription = truncateDescription(blog.short_description);
 
-        // Update header image with blog-specific image
-        headerImage.src = absoluteImageUrl;
-        headerImage.alt = blog.alt || blog.title;
-        
-        // Update logo/nav image with blog-specific image
-        logoImage.src = absoluteImageUrl;
-        logoImage.alt = blog.alt || blog.title;
-        
-        // Update header title with blog title
-        blogHeaderTitle.textContent = blog.title;
-
-        // Update page title
-        document.title = `${blog.title} | Shengeza High School Blog`;
-        
-        // Update description meta tag
-        updateMetaTag('meta[name="description"]', optimizedDescription);
-
-        // Update Open Graph tags for Facebook, LinkedIn, etc.
-        updateMetaTag('meta[property="og:title"]', blog.title);
-        updateMetaTag('meta[property="og:description"]', optimizedDescription);
-        updateMetaTag('meta[property="og:url"]', currentUrl);
-        updateMetaTag('meta[property="og:image"]', absoluteImageUrl);
-        updateMetaTag('meta[property="og:image:alt"]', blog.alt || blog.title);
-        updateMetaTag('meta[property="og:site_name"]', 'Shengeza High School');
-        updateMetaTag('meta[property="article:author"]', 'Shengeza High School');
-        
-        // Add publication date if available
-        if (blog.date) {
-          updateMetaTag('meta[property="article:published_time"]', blog.date);
-        }
-        
-        // Update Twitter Card tags
-        updateMetaTag('meta[name="twitter:title"]', blog.title);
-        updateMetaTag('meta[name="twitter:description"]', optimizedDescription);
-        updateMetaTag('meta[name="twitter:url"]', currentUrl);
-        updateMetaTag('meta[name="twitter:image"]', absoluteImageUrl);
-        updateMetaTag('meta[name="twitter:image:alt"]', blog.alt || blog.title);
+        // Update meta tags immediately for social media crawlers
+        updateMetaTags(blog);
 
         // Format the date if it exists
         const dateDisplay = blog.date ? 
@@ -1004,34 +1006,34 @@
 
     // Enhanced sharing functions for different platforms
     function shareOnFacebook(title, url, description) {
-  const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-  
-  // Check if we're on mobile
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  
-  if (isMobile) {
-    // Try to use Web Share API first (modern approach)
-    if (navigator.share) {
-      navigator.share({
-        title: title,
-        text: description,
-        url: url
-      }).catch(err => {
-        // If Web Share API fails, fall back to opening Facebook in browser
-        console.log('Web Share API failed, falling back to Facebook URL');
-        window.open(facebookUrl, '_blank');
-      });
-    } else {
-      // For mobile without Web Share API, open Facebook directly
-      // Use the mobile Facebook URL which works better on mobile browsers
-      const mobileFacebookUrl = `https://m.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-      window.open(mobileFacebookUrl, '_blank');
+      const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+      
+      // Check if we're on mobile
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      
+      if (isMobile) {
+        // Try to use Web Share API first (modern approach)
+        if (navigator.share) {
+          navigator.share({
+            title: title,
+            text: description,
+            url: url
+          }).catch(err => {
+            // If Web Share API fails, fall back to opening Facebook in browser
+            console.log('Web Share API failed, falling back to Facebook URL');
+            window.open(facebookUrl, '_blank');
+          });
+        } else {
+          // For mobile without Web Share API, open Facebook directly
+          // Use the mobile Facebook URL which works better on mobile browsers
+          const mobileFacebookUrl = `https://m.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+          window.open(mobileFacebookUrl, '_blank');
+        }
+      } else {
+        // Desktop - use the standard popup approach
+        window.open(facebookUrl, '_blank', 'width=600,height=400,scrollbars=yes,resizable=yes');
+      }
     }
-  } else {
-    // Desktop - use the standard popup approach
-    window.open(facebookUrl, '_blank', 'width=600,height=400,scrollbars=yes,resizable=yes');
-  }
-}
 
     function shareOnTwitter(title, url) {
       const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}&via=ShengezaHS`;
