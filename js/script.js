@@ -29,7 +29,7 @@ var swiper = new Swiper(".mySwiper", {
 
 
   //
-  document.addEventListener('DOMContentLoaded', function () {
+  /*document.addEventListener('DOMContentLoaded', function () {
     const blogLeftContainer = document.querySelector('.blog-left');
 
     async function fetchBlogPosts() {
@@ -77,7 +77,7 @@ var swiper = new Swiper(".mySwiper", {
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault();
     });
-});
+});*/
 
 
 
@@ -87,32 +87,32 @@ var swiper = new Swiper(".mySwiper", {
 
     // Map blog IDs to their individual HTML page filenames
     const blogUrlMap = {
-        'blog-26': 'matric-dance-2025-3.html',
-        'blog-25': 'matric-dance-2025-2.html',
-        'blog-24': 'matric-dance-2025.html',
-        'blog-23': 'matric-2025-trip-to-durban.html',
-        'blog-22': 'School-100%-NSC-pass.html',
-        'blog-21': 'matric-100%-pass-rate.html',
-        'blog-20': 'staff-in-mpumalanga.html',
-        'blog-19': 'senzo-give-back.html',
-        'blog-18': 'mathematics-olympiad.html',
-        'blog-17': 'Matric Dance 2024-2.html',
-        'blog-16': 'matric-dance-2024.html',
-        'blog-15': 'expo-at-KwaHlomula.html',
-        'blog-14': 'school-joins-tourism-campaign.html',
-        'blog-13': 'girls-camp.html',
-        'blog-12': 'matric-2024-Durban2.html',
-        'blog-11': 'matric-2024-Durban.html',
-        'blog-10': 'nomvethe-school-tournament.html',
-        'blog-9': 'trip-to-nomyaca-high-school.html',
-        'blog-8': 'boys-camp.html',
-        'blog-7': 'day-of-sports.html',
-        'blog-6': 'career-exhibition-day-2024.html',
-        'blog-5': 'mr-mthembu-returns.html',
-        'blog-4': 'awareness-day-2023.html',
-        'blog-3': 'educational-excursion-2023.html',
-        'blog-2': 'matric-dance-2023.html',
-        'blog-1': 'staff-in-Capetown-2022.html',
+        'blog-26': 'https://shengez.co.za/bit/ly-26',
+        'blog-25': 'https://shengez.co.za/bit/ly-25',
+        'blog-24': 'https://shengez.co.za/bit/ly-24',
+        'blog-23': 'https://shengez.co.za/bit/ly-23',
+        'blog-22': 'https://shengez.co.za/bit/ly-22',
+        'blog-21': 'https://shengez.co.za/bit/ly-21',
+        'blog-20': 'https://shengez.co.za/bit/ly-20',
+        'blog-19': 'https://shengez.co.za/bit/ly-19',
+        'blog-18': 'https://shengez.co.za/bit/ly-18',
+        'blog-17': 'https://shengez.co.za/bit/ly-17',
+        'blog-16': 'https://shengez.co.za/bit/ly-16',
+        'blog-15': 'https://shengez.co.za/bit/ly-15',
+        'blog-14': 'https://shengez.co.za/bit/ly-14',
+        'blog-13': 'https://shengez.co.za/bit/ly-13',
+        'blog-12': 'https://shengez.co.za/bit/ly-12',
+        'blog-11': 'https://shengez.co.za/bit/ly-11',
+        'blog-10': 'https://shengez.co.za/bit/ly-10',
+        'blog-9': 'https://shengez.co.za/bit/ly-09',
+        'blog-8': 'https://shengez.co.za/bit/ly-08',
+        'blog-7': 'https://shengez.co.za/bit/ly-07',
+        'blog-6': 'https://shengez.co.za/bit/ly-06',
+        'blog-5': 'https://shengez.co.za/bit/ly-05',
+        'blog-4': 'https://shengez.co.za/bit/ly-04',
+        'blog-3': 'https://shengez.co.za/bit/ly-03',
+        'blog-2': 'https://shengez.co.za/bit/ly-02',
+        'blog-1': 'https://shengez.co.za/bit/ly-01',
         // Add more mappings as you create individual pages
         // If a blog doesn't have an individual page, it will fallback to blog-view
     };
