@@ -82,7 +82,7 @@ var swiper = new Swiper(".mySwiper", {
 
 
 //New//
-/*document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     const blogLeftContainer = document.querySelector('.blog-left');
 
     // Map blog IDs to their individual HTML page filenames
@@ -154,7 +154,7 @@ var swiper = new Swiper(".mySwiper", {
     }
 
     fetchBlogPosts();
-});*/
+});
 //
 
 
