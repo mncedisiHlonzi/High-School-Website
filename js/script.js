@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Determine the target URL - use individual page if available, otherwise blog-view
                 const individualPage = blogUrlMap[post.id];
                 const targetUrl = individualPage ? 
-                    `https://shengez.co.za/${individualPage}` : 
+                    `https://shengez.co.za/bit/${individualPage}` : 
                     `https://shengez.co.za/blog-view?id=${post.id}`;
 
                 blogContainer.innerHTML = `
