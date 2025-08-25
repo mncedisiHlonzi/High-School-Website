@@ -273,14 +273,6 @@
       background-color: #128c7e;
     }
 
-    .share-debug {
-      background-color: #ff6b6b;
-    }
-
-    .share-debug:hover {
-      background-color: #ff5252;
-    }
-
     /* Navigation buttons */
     .nav-btn {
       display: inline-block;
@@ -693,7 +685,7 @@
 <body>
   <section class="blog-header">
     <div class="header-image-container">
-      <img src="https://shengez.co.za/Images/blog/blog-2/md-13.webp" alt="Shengeza High School - blog" class="header-image" id="dynamic-header-image">
+      <img src="https://shengez.co.za/Images/logo.webp" alt="Shengeza High School - blog" class="header-image" id="dynamic-header-image">
       <div class="overlay"></div>
     </div>
     <nav>
@@ -777,87 +769,26 @@
       window.location.href = 'https://shengez.co.za/blog';
     }
     
-    // Enhanced function to update meta tags more effectively
-    function updateMetaTagsForSharing(blog) {
-      const currentUrl = window.location.href;
-      const absoluteImageUrl = makeImageAbsolute(blog.image);
-      const optimizedDescription = truncateDescription(blog.short_description);
-
-      // Remove existing meta tags first
-      removeExistingMetaTags();
-      
-      // Create new meta tags
-      const metaTags = [
-        // Basic meta tags
-        { name: 'description', content: optimizedDescription },
-        
-        // Open Graph tags
-        { property: 'og:title', content: `${blog.title} | Shengeza High School` },
-        { property: 'og:description', content: optimizedDescription },
-        { property: 'og:url', content: currentUrl },
-        { property: 'og:image', content: absoluteImageUrl },
-        { property: 'og:image:alt', content: blog.alt || blog.title },
-        { property: 'og:image:width', content: '1200' },
-        { property: 'og:image:height', content: '630' },
-        { property: 'og:type', content: 'article' },
-        { property: 'og:site_name', content: 'Shengeza High School' },
-        
-        // Twitter Card tags
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: `${blog.title} | Shengeza High School` },
-        { name: 'twitter:description', content: optimizedDescription },
-        { name: 'twitter:image', content: absoluteImageUrl },
-        { name: 'twitter:image:alt', content: blog.alt || blog.title },
-        { name: 'twitter:site', content: '@ShengezaHS' },
-        { name: 'twitter:creator', content: '@ShengezaHS' },
-        
-        // Article specific tags
-        { property: 'article:author', content: 'Shengeza High School' },
-      ];
-
-      if (blog.date) {
-        metaTags.push({ property: 'article:published_time', content: blog.date });
-      }
-
-      // Add all meta tags to head
-      metaTags.forEach(tag => {
-        const meta = document.createElement('meta');
-        if (tag.property) {
-          meta.setAttribute('property', tag.property);
+    // Enhanced function to update meta tags for better social media sharing
+    function updateMetaTag(selector, content) {
+      let tag = document.querySelector(selector);
+      if (tag) {
+        if (selector.includes('property')) {
+          tag.content = content;
         } else {
-          meta.setAttribute('name', tag.name);
+          tag.content = content;
         }
-        meta.setAttribute('content', tag.content);
-        document.head.appendChild(meta);
-      });
-
-      // Update page title
-      document.title = `${blog.title} | Shengeza High School Blog`;
-      
-      // Force a small delay to ensure meta tags are processed
-      setTimeout(() => {
-        console.log('Meta tags updated for sharing:', {
-          title: blog.title,
-          description: optimizedDescription,
-          image: absoluteImageUrl,
-          url: currentUrl
-        });
-      }, 100);
-    }
-
-    function removeExistingMetaTags() {
-      // Remove existing Open Graph and Twitter meta tags
-      const selectors = [
-        'meta[name="description"]',
-        'meta[property^="og:"]',
-        'meta[name^="twitter:"]',
-        'meta[property^="article:"]'
-      ];
-
-      selectors.forEach(selector => {
-        const elements = document.querySelectorAll(selector);
-        elements.forEach(element => element.remove());
-      });
+      } else {
+        // Create the tag if it doesn't exist
+        tag = document.createElement('meta');
+        if (selector.includes('property')) {
+          tag.setAttribute('property', selector.split('="')[1].split('"')[0]);
+        } else {
+          tag.setAttribute('name', selector.split('="')[1].split('"')[0]);
+        }
+        tag.content = content;
+        document.head.appendChild(tag);
+      }
     }
 
     // Function to ensure image URLs are absolute
@@ -903,12 +834,9 @@
         }
 
         const blog = allBlogs[currentBlogIndex];
-        
-        // Update meta tags IMMEDIATELY for social sharing
-        updateMetaTagsForSharing(blog);
-        
         const currentUrl = window.location.href;
         const absoluteImageUrl = makeImageAbsolute(blog.image);
+        const optimizedDescription = truncateDescription(blog.short_description);
 
         // Update header image with blog-specific image
         headerImage.src = absoluteImageUrl;
@@ -920,6 +848,33 @@
         
         // Update header title with blog title
         blogHeaderTitle.textContent = blog.title;
+
+        // Update page title
+        document.title = `${blog.title} | Shengeza High School Blog`;
+        
+        // Update description meta tag
+        updateMetaTag('meta[name="description"]', optimizedDescription);
+
+        // Update Open Graph tags for Facebook, LinkedIn, etc.
+        updateMetaTag('meta[property="og:title"]', blog.title);
+        updateMetaTag('meta[property="og:description"]', optimizedDescription);
+        updateMetaTag('meta[property="og:url"]', currentUrl);
+        updateMetaTag('meta[property="og:image"]', absoluteImageUrl);
+        updateMetaTag('meta[property="og:image:alt"]', blog.alt || blog.title);
+        updateMetaTag('meta[property="og:site_name"]', 'Shengeza High School');
+        updateMetaTag('meta[property="article:author"]', 'Shengeza High School');
+        
+        // Add publication date if available
+        if (blog.date) {
+          updateMetaTag('meta[property="article:published_time"]', blog.date);
+        }
+        
+        // Update Twitter Card tags
+        updateMetaTag('meta[name="twitter:title"]', blog.title);
+        updateMetaTag('meta[name="twitter:description"]', optimizedDescription);
+        updateMetaTag('meta[name="twitter:url"]', currentUrl);
+        updateMetaTag('meta[name="twitter:image"]', absoluteImageUrl);
+        updateMetaTag('meta[name="twitter:image:alt"]', blog.alt || blog.title);
 
         // Format the date if it exists
         const dateDisplay = blog.date ? 
@@ -934,10 +889,6 @@
         // Generate navigation buttons
         const prevBlog = currentBlogIndex > 0 ? allBlogs[currentBlogIndex - 1] : null;
         const nextBlog = currentBlogIndex < allBlogs.length - 1 ? allBlogs[currentBlogIndex + 1] : null;
-
-        // Escape quotes in title and description for onclick handlers
-        const escapedTitle = blog.title.replace(/'/g, "\\'").replace(/"/g, '\\"');
-        const escapedDescription = blog.short_description.replace(/'/g, "\\'").replace(/"/g, '\\"');
 
         blogContainer.innerHTML = `
           <h1>${blog.title}</h1>
@@ -957,23 +908,20 @@
               <button class="back-btn" onclick="location.href='https://shengez.co.za/blog'">
                 <i class="fas fa-arrow-rotate-left"></i> Back to All Blogs
               </button>
-              <button class="share-btn" onclick="shareOnFacebook('${escapedTitle}', '${currentUrl}', '${escapedDescription}')">
+              <button class="share-btn" onclick="shareOnFacebook('${currentUrl}')">
                 <i class="fab fa-facebook-f"></i> Share on Facebook
               </button>
-              <button class="share-btn share-twitter" onclick="shareOnTwitter('${escapedTitle}', '${currentUrl}')">
+              <button class="share-btn share-twitter" onclick="shareOnTwitter('${blog.title}', '${currentUrl}')">
                 <i class="fab fa-twitter"></i> Share on Twitter
               </button>
-              <button class="share-btn share-linkedin" onclick="shareOnLinkedIn('${escapedTitle}', '${currentUrl}', '${escapedDescription}')">
+              <button class="share-btn share-linkedin" onclick="shareOnLinkedIn('${blog.title}', '${currentUrl}', '${optimizedDescription}')">
                 <i class="fab fa-linkedin-in"></i> Share on LinkedIn
               </button>
-              <button class="share-btn share-whatsapp" onclick="shareOnWhatsApp('${escapedTitle}', '${currentUrl}')">
+              <button class="share-btn share-whatsapp" onclick="shareOnWhatsApp('${blog.title}', '${currentUrl}')">
                 <i class="fab fa-whatsapp"></i> Share on WhatsApp
               </button>
               <button class="share-btn" onclick="copyToClipboard('${currentUrl}')">
                 <i class="fas fa-link"></i> Copy Link
-              </button>
-              <button class="share-btn share-debug" onclick="debugFacebookSharing('${currentUrl}')" title="Debug Facebook sharing">
-                <i class="fas fa-bug"></i> FB Debug
               </button>
             </div>
             
@@ -985,13 +933,48 @@
           </div>
         `;
 
-        // Add Schema.org structured data
-        updateStructuredData(blog, currentUrl, absoluteImageUrl);
-
-        // Test the meta tags (for debugging)
-        setTimeout(() => {
-          testSharingMetaTags();
-        }, 100);
+        // Add Schema.org structured data for better SEO and social sharing
+        const schemaScript = document.createElement('script');
+        schemaScript.type = 'application/ld+json';
+        schemaScript.textContent = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": blog.title,
+          "description": optimizedDescription,
+          "image": {
+            "@type": "ImageObject",
+            "url": absoluteImageUrl,
+            "width": 1200,
+            "height": 630
+          },
+          "datePublished": blog.date || new Date().toISOString(),
+          "dateModified": blog.date || new Date().toISOString(),
+          "author": {
+            "@type": "Organization",
+            "name": "Shengeza High School",
+            "url": "https://shengez.co.za/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Shengeza High School",
+            "url": "https://shengez.co.za/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://shengez.co.za/Images/favicons/favicon-32x32.png"
+            }
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": currentUrl
+          }
+        });
+        
+        // Remove any existing schema script and add the new one
+        const existingSchema = document.querySelector('script[type="application/ld+json"]');
+        if (existingSchema) {
+          existingSchema.remove();
+        }
+        document.head.appendChild(schemaScript);
 
         // Smooth fade-in effect
         blogContainer.style.opacity = '0';
@@ -1020,35 +1003,33 @@
     }
 
     // Enhanced sharing functions for different platforms
-    function shareOnFacebook(title, url, description) {
-      const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-      
-      // Check if we're on mobile
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      
-      if (isMobile) {
-        // Try to use Web Share API first (modern approach)
-        if (navigator.share) {
-          navigator.share({
-            title: title,
-            text: description,
-            url: url
-          }).catch(err => {
-            // If Web Share API fails, fall back to opening Facebook in browser
-            console.log('Web Share API failed, falling back to Facebook URL');
-            window.open(facebookUrl, '_blank');
-          });
-        } else {
-          // For mobile without Web Share API, open Facebook directly
-          // Use the mobile Facebook URL which works better on mobile browsers
-          const mobileFacebookUrl = `https://m.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-          window.open(mobileFacebookUrl, '_blank');
-        }
-      } else {
-        // Desktop - use the standard popup approach
-        window.open(facebookUrl, '_blank', 'width=600,height=400,scrollbars=yes,resizable=yes');
-      }
+    function shareOnFacebook(url) {
+  const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+  
+  // Check if we're on mobile
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    // Try to use Web Share API first (modern approach)
+    if (navigator.share) {
+      navigator.share({
+        url: url
+      }).catch(err => {
+        // If Web Share API fails, fall back to opening Facebook in browser
+        console.log('Web Share API failed, falling back to Facebook URL');
+        window.open(facebookUrl, '_blank');
+      });
+    } else {
+      // For mobile without Web Share API, open Facebook directly
+      // Use the mobile Facebook URL which works better on mobile browsers
+      const mobileFacebookUrl = `https://m.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+      window.open(mobileFacebookUrl, '_blank');
     }
+  } else {
+    // Desktop - use the standard popup approach
+    window.open(facebookUrl, '_blank', 'width=600,height=400,scrollbars=yes,resizable=yes');
+  }
+}
 
     function shareOnTwitter(title, url) {
       const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}&via=ShengezaHS`;
@@ -1062,22 +1043,15 @@
 
     function shareOnWhatsApp(title, url) {
       const whatsappText = `Check out this article: ${title} ${url}`;
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
+      
+      // For mobile devices, try to open WhatsApp app
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       
       if (isMobile) {
-        // For mobile, use the whatsapp:// scheme
-        const whatsappUrl = `whatsapp://send?text=${encodeURIComponent(whatsappText)}`;
         window.location.href = whatsappUrl;
-        
-        // Fallback to web WhatsApp if app doesn't open
-        setTimeout(() => {
-          if (!document.hidden) {
-            window.open(`https://wa.me/?text=${encodeURIComponent(whatsappText)}`, '_blank');
-          }
-        }, 1000);
       } else {
-        // Desktop - use web WhatsApp
-        window.open(`https://wa.me/?text=${encodeURIComponent(whatsappText)}`, '_blank');
+        window.open(whatsappUrl, '_blank');
       }
     }
 
@@ -1105,70 +1079,6 @@
       }
       
       document.body.removeChild(tempInput);
-    }
-
-    // Force Facebook to refresh its cache
-    function debugFacebookSharing(url) {
-      // This will open Facebook's debugger tool to refresh the cache
-      const debugUrl = `https://developers.facebook.com/tools/debug/?q=${encodeURIComponent(url)}`;
-      window.open(debugUrl, '_blank');
-    }
-
-    // Add a debug function to test sharing
-    function testSharingMetaTags() {
-      const metaTags = {
-        title: document.querySelector('meta[property="og:title"]')?.content || document.title,
-        description: document.querySelector('meta[property="og:description"]')?.content || document.querySelector('meta[name="description"]')?.content,
-        image: document.querySelector('meta[property="og:image"]')?.content,
-        url: document.querySelector('meta[property="og:url"]')?.content || window.location.href
-      };
-
-      console.log('Current sharing meta tags:', metaTags);
-      return metaTags;
-    }
-
-    function updateStructuredData(blog, currentUrl, absoluteImageUrl) {
-      const schemaScript = document.createElement('script');
-      schemaScript.type = 'application/ld+json';
-      schemaScript.textContent = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": blog.title,
-        "description": blog.short_description,
-        "image": {
-          "@type": "ImageObject",
-          "url": absoluteImageUrl,
-          "width": 1200,
-          "height": 630
-        },
-        "datePublished": blog.date || new Date().toISOString(),
-        "dateModified": blog.date || new Date().toISOString(),
-        "author": {
-          "@type": "Organization",
-          "name": "Shengeza High School",
-          "url": "https://shengez.co.za/"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Shengeza High School",
-          "url": "https://shengez.co.za/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://shengez.co.za/Images/favicons/favicon-32x32.png"
-          }
-        },
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": currentUrl
-        }
-      });
-      
-      // Remove any existing schema script and add the new one
-      const existingSchema = document.querySelector('script[type="application/ld+json"]');
-      if (existingSchema) {
-        existingSchema.remove();
-      }
-      document.head.appendChild(schemaScript);
     }
 
     // Legacy function for backward compatibility
@@ -1199,17 +1109,18 @@
     // Load the blog post when DOM is ready
     document.addEventListener('DOMContentLoaded', loadBlogPost);
 
-    // Add cache-busting for better social media sharing
-    function addCacheBusting() {
-      const currentUrl = new URL(window.location.href);
-      if (!currentUrl.searchParams.has('v')) {
-        currentUrl.searchParams.set('v', Date.now().toString());
-        window.history.replaceState({}, '', currentUrl.toString());
-      }
+    // Add a function to refresh meta tags (useful for SPA scenarios)
+    function refreshMetaTags() {
+      // Force refresh of meta tags for social media crawlers
+      const metaRefresh = document.createElement('meta');
+      metaRefresh.httpEquiv = 'refresh';
+      metaRefresh.content = '0';
+      document.head.appendChild(metaRefresh);
+      
+      setTimeout(() => {
+        document.head.removeChild(metaRefresh);
+      }, 100);
     }
-
-    // Call cache busting on load
-    addCacheBusting();
   </script>
 
   <script>
