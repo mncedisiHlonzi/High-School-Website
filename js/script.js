@@ -29,7 +29,7 @@ var swiper = new Swiper(".mySwiper", {
 
 
   //
-  /*document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function () {
     const blogLeftContainer = document.querySelector('.blog-left');
 
     async function fetchBlogPosts() {
@@ -77,12 +77,12 @@ var swiper = new Swiper(".mySwiper", {
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault();
     });
-});*/
+});
 
 
 
 //New//
-document.addEventListener('DOMContentLoaded', function () {
+/*document.addEventListener('DOMContentLoaded', function () {
     const blogLeftContainer = document.querySelector('.blog-left');
 
     // Map blog IDs to their individual HTML page filenames
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     fetchBlogPosts();
-});
+});*/
 //
 
 
