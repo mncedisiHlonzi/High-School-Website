@@ -5,97 +5,186 @@
     <loc>https://shengez.co.za/</loc>
     <priority>1.00</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/about</loc>
     <priority>0.85</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/alumni</loc>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/appreciation</loc>
     <priority>0.75</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog</loc>
-    <priority>0.70</priority>
+    <priority>0.75</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/contact</loc>
     <priority>0.85</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/policy</loc>
     <priority>0.60</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/staff</loc>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/streams</loc>
     <priority>0.80</priority>
   </url>
 
+
+  <url>
+    <loc>https://shengez.co.za/bit/ly-01</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-02</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-03</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-04</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-05</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-06</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-07</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-08</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-09</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-10</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-11</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-12</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-13</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-14</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-15</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-16</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-17</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-18</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-19</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-20</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-21</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-22</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-23</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-24</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-25</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shengez.co.za/bit/ly-26</loc>
+    <priority>0.70</priority>
+  </url>
+
+
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-1</loc>
     <priority>0.65</priority>
-  </url>
-  
+  </url>  
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-2</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-3</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-4</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-5</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-6</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-7</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-8</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-9</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-10</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-11</loc>
     <priority>0.65</priority>
@@ -105,72 +194,58 @@
     <loc>https://shengez.co.za/blog-view?id=blog-12</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-13</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-14</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-15</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-16</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-17</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-18</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-19</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-20</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-21</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-22</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-23</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-24</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-25</loc>
     <priority>0.65</priority>
   </url>
-
   <url>
     <loc>https://shengez.co.za/blog-view?id=blog-26</loc>
     <priority>0.65</priority>
