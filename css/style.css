@@ -2103,17 +2103,6 @@ End*/
 
 }
 
-.rcl h2 {
-    text-align: center;
-}
-
-.rcl hr {
-    width: 100px;
-    margin: 10px auto;
-    border: 0;
-    border-top: 3px solid gold;
-}
-
 .rcl .members {
     display: flex;
     justify-content: center;
