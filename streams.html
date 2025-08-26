@@ -204,6 +204,25 @@
     #installButton {
         display: none;
     }
+
+    h1 {
+  position: relative;
+  display: inline-block; /* makes underline just fit the text */
+  color: #000;
+  text-align: center;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: -8px; /* distance below text */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;   /* length of underline */
+  height: 3px;   /* thickness */
+  background: gold; /* color of line */
+  border-radius: 2px; /* makes edges smooth */
+}
     
     /* Show only on mobile screens (adjust breakpoint as needed) */
     @media (max-width: 768px) {
