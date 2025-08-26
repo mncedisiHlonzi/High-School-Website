@@ -1,5 +1,5 @@
 const CACHE_NAME = 'shengeza-cache-v1';
-const OFFLINE_URL = '/offline.html'; // Use relative path (more reliable)
+const OFFLINE_URL = '/offline.html';
 
 const ASSETS_TO_CACHE = [
   '/', // homepage
