@@ -114,7 +114,6 @@ document.addEventListener('DOMContentLoaded', function () {
         'blog-2': 'ly-02',
         'blog-1': 'ly-01',
         // Add more mappings as you create individual pages
-        // If a blog doesn't have an individual page, it will fallback to blog-view
     };
 
     async function fetchBlogPosts() {
@@ -126,24 +125,28 @@ document.addEventListener('DOMContentLoaded', function () {
             const blogPosts = await response.json();
 
             blogPosts.forEach(post => {
+                const individualPage = blogUrlMap[post.id];
+
+                // Skip rendering if no mapping exists
+                if (!individualPage) return;
+
                 const blogContainer = document.createElement('div');
                 blogContainer.classList.add('container-b');
                 blogContainer.setAttribute('data-blog-id', post.id);
 
-                // Determine the target URL - use individual page if available, otherwise blog-view
-                const individualPage = blogUrlMap[post.id];
-                const targetUrl = individualPage ? 
-                    `https://shengez.co.za/bit/${individualPage}` : 
-                    `https://shengez.co.za/blog-view?id=${post.id}`;
+                const targetUrl = `https://shengez.co.za/bit/${individualPage}`;
 
                 blogContainer.innerHTML = `
                     <img src="${post.image}" alt="${post.alt}">
                     <h2>${post.title}</h2>
-                    <p style="font-weight: 400; font-size: 13px; line-height: 1.6; color: #000; text-align: left;">${post.short_description}</p>
+                    <p style="font-weight: 400; font-size: 13px; line-height: 1.6; color: #000; text-align: left;">
+                        ${post.short_description}
+                    </p>
                     <span class="read-more-btn-b">
                         <a href="${targetUrl}" style="text-decoration: none; color: #000;">Read More...</a>
                     </span>
                 `;
+
                 blogLeftContainer.appendChild(blogContainer);
             });
 
