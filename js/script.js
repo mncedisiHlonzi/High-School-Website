@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 blogContainer.innerHTML = `
                     <img src="${post.image}" alt="${post.alt}">
                     <h2>${post.title}</h2>
-                    <p style="font-weight: 400; font-size: 13px; line-height: 1.6; color: #000; text-align: center;">
+                    <p style="font-weight: 400; font-size: 13px; line-height: 1.6; color: #000; text-align: left;">
                         ${post.short_description}
                     </p>
                     <span class="read-more-btn-b">
