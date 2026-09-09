@@ -87,6 +87,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Map blog IDs to their individual HTML page filenames
     const blogUrlMap = {
+        'blog-35': 'ly-35',
+        'blog-34': 'ly-34',
+        'blog-33': 'ly-33',
+        'blog-32': 'ly-32',
+        'blog-31': 'ly-31',
         'blog-30': 'ly-30',
         'blog-29': 'ly-29',
         'blog-28': 'ly-28',
